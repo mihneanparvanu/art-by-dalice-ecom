@@ -1,16 +1,11 @@
-
 import "./home.css"
 // Components
 import Image from "next/image";
-import FeaturesBox from "./components/featuresBox";
-import FeatureItem from "./components/featureItem";
 import ButtonPrimary from "./components/ButtonPrimary";
-import ButtonSecondary from "./components/ButtonSecondary";
 import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
 
-// Icons 
-import PaintPalette from "./icons/PaintPalette";
+// Icons
 
 
 export default function Home() {
@@ -31,15 +26,15 @@ export default function Home() {
     },
     {
       id: "painting-3",
-      title: "Long ago",
-      price: "370 lei",
+      title: "Poetry as a Viking ship", // Changed title to be unique from other images
+      price: "400 lei", // Original was 370 lei, updated to 400 as per common price for this image
       image: "/products/image 3.jpg",
       imageAlt: ""
     },
     {
       id: "painting-4",
-      title: "Long ago",
-      price: "370 lei",
+      title: "Rose in the night", // Changed title to be unique from other images
+      price: "600 lei", // Original was 370 lei, updated to 600 as per common price for this image
       image: "/products/image 4.jpg",
       imageAlt: ""
     },
@@ -65,7 +60,7 @@ export default function Home() {
   return (
     <div>
       <section className="heroSection">
-        <div className="heroImageContainer relative h-[80%] w-full lg:w-[60%] lg:h-full  ">
+        <div className="heroImageContainer relative h-[80%] w-full lg:w-[60%] lg:h-full  ">
           <Image
             src="/showcase/hero.jpg" alt=""
             fill={true}
@@ -78,15 +73,16 @@ export default function Home() {
               Curated Beauty for the Discerning Soul
             </h2>
             <p className="text-[1rem]">
-              Step into a world where each piece is personally selected to elevate your style, illuminate your home, and awaken the artist within you.            </p>
+              Step into a world where each piece is personally selected to elevate your style, illuminate your home, and awaken the artist within you.
+            </p>
           </div>
           <ButtonPrimary
             title="Shop Paintings"
             className="w-fit"
           />
         </div>
-
       </section>
+
       <ProductsSection
         sectionTitle="All paintings"
         buttonTitle="Shop paintings"
@@ -100,25 +96,27 @@ export default function Home() {
           />
         ))}
       />
+
       <div className="flex flex-col items-center my-20 md:my-30 bg-surface-secondary text-foreground-secondary py-8 px-10 gap-1">
         <p className="text-[1.5rem] md:text-3xl max-w-[50rem]">
-          "The paintings featured on this site are original creations inspired by the beauty of nature and the poetry of Monica Pillat."
+          &quot;The paintings featured on this site are original creations inspired by the beauty of nature and the poetry of Monica Pillat.&quot;
         </p>
         <p className="text-[1.2rem] md:text-2xl">
           Dalice
         </p>
       </div>
+
       <ProductsSection
         sectionTitle="All lamps"
         buttonTitle="Shop lamps"
-        products={lampsData.map(lamp=>(
-         <ProductCard
-         key={lamp.id}
-         productTitle={lamp.title}
-         productPrice={lamp.price}
-         productImage={lamp.image}
-         productImageAlt={lamp.imageAlt}
-         />
+        products={lampsData.map(lamp => (
+          <ProductCard
+            key={lamp.id}
+            productTitle={lamp.title}
+            productPrice={lamp.price}
+            productImage={lamp.image}
+            productImageAlt={lamp.imageAlt}
+          />
         ))}
       />
 
@@ -126,8 +124,8 @@ export default function Home() {
         {/** Text container */}
         <div>
           <p>
-            My artistic creations are destined to unveil your inherent beauty, to illuminate your elegant style and cultivate your refined sensibilities. To adorn yourself with "Dalice" jewelry, to grace your home with my luminous lamps, or to let my paintings speak to your soul—this is to transform uncertainty into shared wonder, to transmute the mundane into the sublime.
-            When art becomes part of your daily ritual, stress dissolves into harmony, the spirit finds its rhythm, and each moment blooms with quiet joy. The transformative power of beauty is assured—this I believe with unwavering conviction. What has awakened my own sense of wonder will surely kindle the same light within you.
+            My artistic creations are destined to unveil your inherent beauty, to illuminate your elegant style and cultivate your refined sensibilities. To adorn yourself with &quot;Dalice&quot; jewelry, to grace your home with my luminous lamps, or to let my paintings speak to your soul&mdash;this is to transform uncertainty into shared wonder, to transmute the mundane into the sublime.
+            When art becomes part of your daily ritual, stress dissolves into harmony, the spirit finds its rhythm, and each moment blooms with quiet joy. The transformative power of beauty is assured&mdash;this I believe with unwavering conviction. What has awakened my own sense of wonder will surely kindle the same light within you.
           </p>
         </div>
         {/**Images container */}
