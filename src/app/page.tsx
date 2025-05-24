@@ -4,11 +4,13 @@ import Image from "next/image";
 import ButtonPrimary from "./components/ButtonPrimary";
 import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
+import supabase from "./config/supabaseClient";
 
 // Icons
 
 
 export default function Home() {
+  console.log(supabase)
   const paintingsData = [
     {
       id: "painting-1",
