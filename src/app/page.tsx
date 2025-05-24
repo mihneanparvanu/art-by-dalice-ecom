@@ -13,51 +13,54 @@ import ProductCard from "./components/ProductCard";
 import PaintPalette from "./icons/PaintPalette";
 
 
-
 export default function Home() {
-  const paintingsCards = [
-    <ProductCard
-      productTitle="In the distance"
-      productPrice="400 lei"
-      productImage="/products/image 1.jpg"
-      productImageAlt=""
-    />,
-    <ProductCard
-      productTitle="Long ago"
-      productPrice="370 lei"
-      productImage="/products/image 2.png"
-      productImageAlt=""
-    />,
-    <ProductCard
-      productTitle="Poetry as a Viking ship"
-      productPrice="400 lei"
-      productImage="/products/image 3.jpg"
-      productImageAlt=""
-    />,
-    <ProductCard
-      productTitle="Rose in the night"
-      productPrice="600 lei"
-      productImage="/products/image 4.jpg"
-      productImageAlt=""
-    />
+  const paintingsData = [
+    {
+      id: "painting-1",
+      title: "In the distance",
+      price: "400 lei",
+      image: "/products/image 1.jpg",
+      imageAlt: ""
+    },
+    {
+      id: "painting-2",
+      title: "Long ago",
+      price: "370 lei",
+      image: "/products/image 2.png",
+      imageAlt: ""
+    },
+    {
+      id: "painting-3",
+      title: "Long ago",
+      price: "370 lei",
+      image: "/products/image 3.jpg",
+      imageAlt: ""
+    },
+    {
+      id: "painting-4",
+      title: "Long ago",
+      price: "370 lei",
+      image: "/products/image 4.jpg",
+      imageAlt: ""
+    },
   ]
 
-  const lampsCard = [
-    <ProductCard
-      productTitle="Tray lamp"
-      productPrice="price"
-      productImage="/products/traylamp.jpg"
-      productImageAlt=""
-    />,
-
-    <ProductCard
-      productTitle="Bottle lamp"
-      productPrice="price"
-      productImage="/products/bottlelamp.jpg"
-      productImageAlt=""
-    />
+  const lampsData = [
+    {
+      id: "lamp-1",
+      title: "Tray lamp",
+      price: "price",
+      image: "/products/traylamp.jpg",
+      imageAlt: ""
+    },
+    {
+      id: "lamp-2",
+      title: "Bottle lamp",
+      price: "price",
+      image: "/products/bottlelamp.jpg",
+      imageAlt: ""
+    }
   ]
-
 
   return (
     <div>
@@ -75,7 +78,7 @@ export default function Home() {
               Curated Beauty for the Discerning Soul
             </h2>
             <p className="text-[1rem]">
-Step into a world where each piece is personally selected to elevate your style, illuminate your home, and awaken the artist within you.            </p>
+              Step into a world where each piece is personally selected to elevate your style, illuminate your home, and awaken the artist within you.            </p>
           </div>
           <ButtonPrimary
             title="Shop Paintings"
@@ -87,7 +90,15 @@ Step into a world where each piece is personally selected to elevate your style,
       <ProductsSection
         sectionTitle="All paintings"
         buttonTitle="Shop paintings"
-        products={paintingsCards}
+        products={paintingsData.map(painting => (
+          <ProductCard
+            key={painting.id}
+            productTitle={painting.title}
+            productPrice={painting.price}
+            productImage={painting.image}
+            productImageAlt={painting.imageAlt}
+          />
+        ))}
       />
       <div className="flex flex-col items-center my-20 md:my-30 bg-surface-secondary text-foreground-secondary py-8 px-10 gap-1">
         <p className="text-[1.5rem] md:text-3xl max-w-[50rem]">
@@ -100,27 +111,35 @@ Step into a world where each piece is personally selected to elevate your style,
       <ProductsSection
         sectionTitle="All lamps"
         buttonTitle="Shop lamps"
-        products={lampsCard}
+        products={lampsData.map(lamp=>(
+         <ProductCard
+         key={lamp.id}
+         productTitle={lamp.title}
+         productPrice={lamp.price}
+         productImage={lamp.image}
+         productImageAlt={lamp.imageAlt}
+         />
+        ))}
       />
 
       <div className="flex flex-col items-center bg-surface-primary text-foreground-secondary py-6 px-6 lg:px-16 lg:flex-row lg:gap-5">
-      {/** Text container */}
-      <div>
-        <p>
-          My artistic creations are destined to unveil your inherent beauty, to illuminate your elegant style and cultivate your refined sensibilities. To adorn yourself with "Dalice" jewelry, to grace your home with my luminous lamps, or to let my paintings speak to your soul—this is to transform uncertainty into shared wonder, to transmute the mundane into the sublime.
-          When art becomes part of your daily ritual, stress dissolves into harmony, the spirit finds its rhythm, and each moment blooms with quiet joy. The transformative power of beauty is assured—this I believe with unwavering conviction. What has awakened my own sense of wonder will surely kindle the same light within you.
-        </p>
+        {/** Text container */}
+        <div>
+          <p>
+            My artistic creations are destined to unveil your inherent beauty, to illuminate your elegant style and cultivate your refined sensibilities. To adorn yourself with "Dalice" jewelry, to grace your home with my luminous lamps, or to let my paintings speak to your soul—this is to transform uncertainty into shared wonder, to transmute the mundane into the sublime.
+            When art becomes part of your daily ritual, stress dissolves into harmony, the spirit finds its rhythm, and each moment blooms with quiet joy. The transformative power of beauty is assured—this I believe with unwavering conviction. What has awakened my own sense of wonder will surely kindle the same light within you.
+          </p>
+        </div>
+        {/**Images container */}
+        <div className="lg:w-[60%]">
+          <Image
+            src=""
+            alt=""
+            width={500}
+            height={500}
+          ></Image>
+        </div>
       </div>
-      {/**Images container */}
-      <div className="lg:w-[60%]">
-        <Image
-          src=""
-          alt=""
-          width={500}
-          height={500}
-        ></Image>
-      </div>
-       </div>
     </div>
   );
 }

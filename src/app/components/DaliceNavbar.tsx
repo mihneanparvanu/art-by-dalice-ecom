@@ -1,7 +1,3 @@
-import Link from "next/link"
-import Image from "next/image"
-import NavbarMenu from "./menu"
-import DaliceLogo from "../../../public/icons/DaliceLogo"
 import PackageIcon from "../icons/PackageIcon"
 import MobileNavbar from "./MobileNavbar"
 import DesktopNavbar from "./DesktopNavbar"
