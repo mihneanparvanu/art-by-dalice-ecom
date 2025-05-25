@@ -6,6 +6,7 @@ import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
 import supabase from "./config/supabaseClient";
 
+
 // Icons
 
 
@@ -61,30 +62,29 @@ export default function Home() {
 
   return (
     <div>
-      <section className="heroSection">
+      <section className="heroSection">       
         <div className="heroImageContainer relative h-[80%] w-full lg:w-[60%] lg:h-full  ">
           <Image
             src="/showcase/hero.jpg" alt=""
             fill={true}
-            className="object-cover"
+            className="object-cover rounded-[0.2rem]"
           ></Image>
         </div>
         <div className="heroTextContainer">
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl font-medium lg:text-6xl">
-              Curated Beauty for the Discerning Soul
+            <h2 className="text-3xl font-medium lg:text-7xl lg:max-w">
+              Curated Beauty for <br/> the Discerning Soul
             </h2>
             <p className="text-[1rem]">
               Step into a world where each piece is personally selected to elevate your style, illuminate your home, and awaken the artist within you.
             </p>
           </div>
           <ButtonPrimary
-            title="Shop Paintings"
+            title="Shop the new collection"
             className="w-fit"
           />
         </div>
       </section>
-
       <ProductsSection
         sectionTitle="All paintings"
         buttonTitle="Shop paintings"

@@ -7,7 +7,7 @@ className?: string
 
 export default function ButtonPrimary ({title, action, className}: ButtonPrimaryProps) {
     return (
-       <button className={`bg-foreground text-background text-[1.1rem] lg:text-[1.4rem] py-4 px-8 rounded-full ${className}`}
+       <button className={`bg-foreground text-background font-semibold text-[1rem] lg:text-[1rem] py-4 px-8 rounded-full ${className}`}
        onClick={action}
        >
         {title}
