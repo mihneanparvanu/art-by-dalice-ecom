@@ -1,6 +1,6 @@
 import CategoryHolder from "../components/products/CategoryHolder";
 import ProductGridItem from "../components/products/ProductGridItem";
-import { PaintingsData } from "../paintingsdata";
+import { PaintingsData } from "../data/PaintingsData";
 
 export default function Products() {
   return (
@@ -22,7 +22,7 @@ export default function Products() {
               imageURL="/products/image 3.jpg"
             />
             <CategoryHolder
-              title="Photography"
+              title="Lamps"
               imageURL="/products/image 4.jpg"
             />
             <CategoryHolder
@@ -36,6 +36,7 @@ export default function Products() {
           <div className="w-full grid grid-cols-4 gap-5">
             {PaintingsData.map(painting => (
               <ProductGridItem
+              key={painting.id}
               title={painting.title}
               price={painting.price}
               imageURL={painting.image}

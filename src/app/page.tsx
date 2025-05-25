@@ -5,27 +5,13 @@ import ButtonPrimary from "./components/ButtonPrimary";
 import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
 import supabase from "./config/supabaseClient";
+import { PaintingsData } from "./data/PaintingsData";
+import { LampsData } from "./data/LampsData";
 
 // Icons
 
 
 export default function Home() {
-  const lampsData = [
-    {
-      id: "lamp-1",
-      title: "Tray lamp",
-      price: "price",
-      image: "/products/traylamp.jpg",
-      imageAlt: ""
-    },
-    {
-      id: "lamp-2",
-      title: "Bottle lamp",
-      price: "price",
-      image: "/products/bottlelamp.jpg",
-      imageAlt: ""
-    }
-  ]
 
   return (
     <div>
@@ -55,7 +41,7 @@ export default function Home() {
       <ProductsSection
         sectionTitle="All paintings"
         buttonTitle="Shop paintings"
-        products={paintingsData.map(painting => (
+        products={PaintingsData.map(painting => (
           <ProductCard
             key={painting.id}
             productTitle={painting.title}
@@ -78,7 +64,7 @@ export default function Home() {
       <ProductsSection
         sectionTitle="All lamps"
         buttonTitle="Shop lamps"
-        products={lampsData.map(lamp => (
+        products={LampsData.map(lamp => (
           <ProductCard
             key={lamp.id}
             productTitle={lamp.title}
