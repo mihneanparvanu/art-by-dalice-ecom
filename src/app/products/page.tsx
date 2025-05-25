@@ -1,4 +1,6 @@
 import CategoryHolder from "../components/products/CategoryHolder";
+import ProductGridItem from "../components/products/ProductGridItem";
+import { PaintingsData } from "../paintingsdata";
 
 export default function Products() {
   return (
@@ -30,17 +32,15 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="w-full contour">
-          <div className="grid grid-rows-3 grid-cols-3 w-full h-full gap-4">
-          
-          
-          
-          
-          
-          
-          
-          
-          
+        <div className="w-full flex flex-col items-center">
+          <div className="w-full grid grid-cols-4 gap-5">
+            {PaintingsData.map(painting => (
+              <ProductGridItem
+              title={painting.title}
+              price={painting.price}
+              imageURL={painting.image}
+              />
+            ))}
           </div>
         </div>
       </section>

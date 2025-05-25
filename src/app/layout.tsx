@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={rubik.className}
+        className={`${rubik.className} relative`}
       >
        <DaliceNavbar/>
         {children}
