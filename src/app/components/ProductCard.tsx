@@ -3,15 +3,13 @@ import Image from "next/image";
 interface ProductCardProps {
   productTitle: string;
   productPrice: string;
-  productImage?: string;
-  productImageAlt?: string;
+  productImageURL?: string;
 }
 
 export default function ProductCard({
   productTitle,
   productPrice,
-  productImage,
-  productImageAlt,
+  productImageURL,
 }: ProductCardProps) {
   return (
     <div
@@ -21,13 +19,13 @@ export default function ProductCard({
     "
     >
       <div className="p-6 bg-surface-secondary rounded-t-[calc(var(--card-radius)-var(--card-padding))]">
-        {productImage ? (
+        {productImageURL ? (
           <Image
             width={800}
             height={1200}
             className="max-w-full h-[10rem] lg:h-[14rem] object-contain"
-            src={productImage}
-            alt={productImageAlt || `Image of ${productTitle}`}
+            src={productImageURL}
+            alt={`Image of ${productTitle}  painting`}
           />
         ) : (
           <div>No image available</div>

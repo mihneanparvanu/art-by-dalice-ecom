@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "./home.css";
 import { useEffect, useState } from "react";
 // Components
@@ -10,11 +10,11 @@ import FetchProducts from "./data/FetchProducts";
 // Icons
 
 interface Painting {
-  id: string
-  title: string
-  image?: string
-  imageAlt?: string
-  price: string
+  id: string;
+  title: string;
+  image_url?: string;
+  imageAlt?: string;
+  price: string;
 }
 
 export default function Home() {
@@ -22,11 +22,13 @@ export default function Home() {
   const [fetchError, setFetchError] = useState(null);
   useEffect(() => {
     const getPaintings = async () => {
+       console.log("Fetching");
       setFetchError(null);
       const { data, error } = await FetchProducts();
+     console.log("Supabase raw data:", data)
+     console.log("Supabase raw error:", error)
 
       if (error) {
-        setFetchError(error);
         console.log(error);
         setPaintings(null);
       }
@@ -36,7 +38,7 @@ export default function Home() {
         setFetchError(null);
       }
     };
-    getPaintings();
+    getPaintings()
   }, []);
 
   return (
@@ -73,8 +75,7 @@ export default function Home() {
               key={painting.id}
               productTitle={painting.title}
               productPrice={painting.price}
-              productImage={painting.image}
-              productImageAlt={painting.imageAlt}
+              productImageURL={painting.image_url}
             />
           ))}
         />
@@ -88,7 +89,6 @@ export default function Home() {
         </p>
         <p className="text-[1.2rem] md:text-2xl">Dalice</p>
       </div>
-
 
       <div className="flex flex-col items-center bg-surface-primary text-foreground-secondary py-6 px-6 lg:px-16 lg:flex-row lg:gap-5">
         {/** Text container */}
