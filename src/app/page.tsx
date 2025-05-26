@@ -1,4 +1,6 @@
 import "./home.css"
+import { useEffect } from "react";
+
 // Components
 import Image from "next/image";
 import ButtonPrimary from "./components/ButtonPrimary";
