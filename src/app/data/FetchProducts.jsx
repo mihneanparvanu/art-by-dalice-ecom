@@ -1,7 +1,7 @@
 import { useState } from "react";
 import supabase from "./config/supabaseClient";
 
-export default async function FetchProducts () {
+export default async function fetchProducts () {
   const [fetchError, setError] = useState(null);
   const [paintings, setProducts] = useState(null);
 
@@ -15,4 +15,6 @@ export default async function FetchProducts () {
     setProducts(data);
     setError(null);
   }
+
+  return {data, error}
 };
