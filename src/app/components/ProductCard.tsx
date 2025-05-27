@@ -20,10 +20,10 @@ export default function ProductCard({
     >
       <div className="p-6 bg-surface-secondary rounded-t-[calc(var(--card-radius)-var(--card-padding))]">
         {productImageURL ? (
-          <Image
-            width={800}
-            height={1200}
-            className="max-w-full h-[10rem] lg:h-[14rem] object-contain"
+          <img 
+            width={500}
+            height={1500}
+            className="w-20 h-20 object-contain"
             src={productImageURL}
             alt={`Image of ${productTitle}  painting`}
           />

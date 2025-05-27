@@ -45,12 +45,11 @@ export default function Home() {
     <div>
       <section className="heroSection">
         <div className="heroImageContainer relative h-[80%] w-full lg:w-[60%] lg:h-full  ">
-          <Image
+          <img
             src="/showcase/hero.jpg"
             alt=""
-            fill={true}
             className="object-cover rounded-[0.2rem]"
-          ></Image>
+          ></img>
         </div>
         <div className="heroTextContainer">
           <div className="flex flex-col gap-2">
