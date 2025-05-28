@@ -7,9 +7,7 @@ interface Product {
   image_url?: string
 }
 export default async function fetchProducts () {
- 
- console.log(Supabase.getChannels)
-
+  // Fetch products from Supabase
   const { data, error } = await Supabase.from("products").select();
 
   if (error) {

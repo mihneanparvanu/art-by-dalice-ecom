@@ -7,6 +7,7 @@ import ButtonPrimary from "./components/ButtonPrimary";
 import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
 import FetchProducts from "./data/FetchProducts";
+import Link from "next/link";
 
 // Icons
 
@@ -71,12 +72,15 @@ export default function Home() {
           sectionTitle="All paintings"
           buttonTitle="Shop paintings"
           products={paintings.slice(0,4).map((painting) => (
+            <Link href={{pathname:"/product", query: {id:painting.id}}} 
+            key={painting.id}>
             <ProductCard
               key={painting.id}
               productTitle={painting.name}
               productPrice={painting.price}
               productImageURL={painting.image_url}
             />
+            </Link>
           ))}
         />
       )}
