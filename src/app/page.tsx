@@ -7,11 +7,12 @@ import ButtonPrimary from "./components/ButtonPrimary";
 import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
 import FetchProducts from "./data/FetchProducts";
+
 // Icons
 
 interface Painting {
   id: string;
-  title: string;
+  name: string;
   image_url?: string;
   imageAlt?: string;
   price: string;
@@ -69,10 +70,10 @@ export default function Home() {
         <ProductsSection
           sectionTitle="All paintings"
           buttonTitle="Shop paintings"
-          products={paintings.map((painting) => (
+          products={paintings.slice(0,4).map((painting) => (
             <ProductCard
               key={painting.id}
-              productTitle={painting.title}
+              productTitle={painting.name}
               productPrice={painting.price}
               productImageURL={painting.image_url}
             />

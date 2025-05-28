@@ -18,12 +18,12 @@ export default function ProductCard({
     [--card-padding:--spacing(2)]
     "
     >
-      <div className="p-6 bg-surface-secondary rounded-t-[calc(var(--card-radius)-var(--card-padding))]">
+      <div className="p-6 w-full flex justify-center bg-surface-secondary rounded-t-[calc(var(--card-radius)-var(--card-padding))]">
         {productImageURL ? (
           <img 
             width={500}
             height={1500}
-            className="w-20 h-20 object-contain"
+            className="w-60 h-60 object-contain"
             src={productImageURL}
             alt={`Image of ${productTitle}  painting`}
           />

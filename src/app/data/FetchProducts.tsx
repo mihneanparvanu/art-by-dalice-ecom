@@ -2,7 +2,7 @@ import Supabase from "../SupabaseClient";
 
 interface Product {
   id: string
-  title: string
+  name: string
   price: string
   image_url?: string
 }

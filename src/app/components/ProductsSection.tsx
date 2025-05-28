@@ -19,7 +19,7 @@ export default function ProductsSection({sectionTitle, buttonTitle, products}: P
                         title={buttonTitle}
                     />
                 </div>
-                <div className="flex flex-col gap-10 items-center lg:flex-row ">
+                <div className="grid gap-8 items-center md:grid-cols-2 lg:grid-cols-4">
                     {products}
                 </div>
             </div>
