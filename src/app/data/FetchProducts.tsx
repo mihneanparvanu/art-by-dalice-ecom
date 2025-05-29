@@ -1,4 +1,4 @@
-import Supabase from "../SupabaseClient";
+import Supabase from "@/lib/supabase"
 
 interface Product {
   id: string
