@@ -1,5 +1,4 @@
 
-
 interface CategoryHolderProps {
     title: string
     imageURL: string

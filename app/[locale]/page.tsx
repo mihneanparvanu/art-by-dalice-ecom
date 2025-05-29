@@ -3,14 +3,14 @@ import "./home.css";
 import { use, useEffect, useState } from "react";
 // Components
 import Image from "next/image";
-import ButtonPrimary from "./components/ButtonPrimary";
-import ProductsSection from "./components/ProductsSection";
-import ProductCard from "./components/ProductCard";
-import FetchProducts from "./data/FetchProducts";
+import ButtonPrimary from "../../components/ui/ButtonPrimary";
+import ProductsSection from "../../components/product/ProductsSection";
+import ProductCard from "../../components/product/ProductCard";
+import FetchProducts from "../../data/FetchProducts";
 import Link from "next/link";
 
-
-// Icons
+//Utilities 
+import { useTranslations } from "next-intl";
 
 interface Painting {
   id: string;
@@ -21,6 +21,7 @@ interface Painting {
 }
 
 export default function Home() {
+  const t = useTranslations("Home");
  
 
   const [paintings, setPaintings] = useState<Painting[] | null>(null);
@@ -59,7 +60,7 @@ export default function Home() {
         <div className="heroTextContainer">
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-medium lg:text-7xl lg:max-w">
-             heroHeading
+             {t("hero.heading")}
             </h1>
             <p className="text-[1rem]">
               Step into a world where each piece is personally selected to
@@ -67,7 +68,7 @@ export default function Home() {
               within you.
             </p>
           </div>
-          <ButtonPrimary title="Shop the new collection" className="w-fit" />
+          <ButtonPrimary title={t("hero.button")} className="w-fit" />
         </div>
       </section>
       {paintings && (

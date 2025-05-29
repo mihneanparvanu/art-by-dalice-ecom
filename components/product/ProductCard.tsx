@@ -33,7 +33,7 @@ export default function ProductCard({
       </div>
       <div className="flex flex-col gap-0.5 p-4">
         <p>{productTitle}</p>
-        <p>{productPrice}</p>
+        <p>{productPrice} <span> lei</span></p>
       </div>
     </div>
   );

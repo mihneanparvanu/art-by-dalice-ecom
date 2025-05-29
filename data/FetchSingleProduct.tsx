@@ -1,4 +1,4 @@
-import Supabase from "../SupabaseClient"
+import Supabase from "../lib/supabase"
 
 export const fetchSingleProduct = async (id: string) => {
      // Fetch products from Supabase

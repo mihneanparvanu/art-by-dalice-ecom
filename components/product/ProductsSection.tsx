@@ -1,6 +1,6 @@
 import React from "react"
 //Components
-import ButtonSecondary from "./ButtonSecondary"
+import ButtonSecondary from "../ui/ButtonSecondary"
 
 
 interface ProductsSectionProps {

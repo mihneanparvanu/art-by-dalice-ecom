@@ -1,4 +1,4 @@
-import DaliceLogo from "../../../../public/icons/DaliceLogo";
+import DaliceLogo from "../../public/icons/DaliceLogo"
 import { LucideShoppingBag } from "lucide-react";
 import { Menu } from "lucide-react";
 export default function MobileNavbar() {
