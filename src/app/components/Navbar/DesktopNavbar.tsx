@@ -1,12 +1,12 @@
 import Link from "next/link";
-import DaliceLogo from "../../../public/icons/DaliceLogo";
+import DaliceLogo from "../../../../public/icons/DaliceLogo";
 import { LucideShoppingBag } from "lucide-react";
 import { CircleUserRound } from "lucide-react";
 
 export default function DesktopNavbar() {
   return (
     /**DesktopNav Container */
-    <nav className="relative text-background bg-accent-primary hidden lg:flex"> 
+    <nav className="relative text-white bg-accent-primary hidden lg:flex"> 
       <div className="container py-8 grid grid-cols-3 items-center z-50">
         <div className="flex gap-5 justify-start justify-self-start">
           <Link href={"/about"}>About</Link>

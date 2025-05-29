@@ -1,5 +1,5 @@
-import fetchProducts from "../data/FetchProducts";
-import ProductCard from "../components/ProductCard";
+import fetchProducts from "./../data/FetchProducts";
+import ProductCard from "./../components/ProductCard";
 import Link from "next/link";
 export default async function ProductsPage() {
   const products = (await fetchProducts()).data;

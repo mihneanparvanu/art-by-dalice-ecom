@@ -1,6 +1,6 @@
 "use client";
 import "./home.css";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 // Components
 import Image from "next/image";
 import ButtonPrimary from "./components/ButtonPrimary";
@@ -8,6 +8,7 @@ import ProductsSection from "./components/ProductsSection";
 import ProductCard from "./components/ProductCard";
 import FetchProducts from "./data/FetchProducts";
 import Link from "next/link";
+
 
 // Icons
 
@@ -20,6 +21,8 @@ interface Painting {
 }
 
 export default function Home() {
+ 
+
   const [paintings, setPaintings] = useState<Painting[] | null>(null);
   const [fetchError, setFetchError] = useState(null);
   useEffect(() => {
@@ -55,9 +58,9 @@ export default function Home() {
         </div>
         <div className="heroTextContainer">
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl font-medium lg:text-7xl lg:max-w">
-              Curated Beauty for <br /> the Discerning Soul
-            </h2>
+            <h1 className="text-3xl font-medium lg:text-7xl lg:max-w">
+             heroHeading
+            </h1>
             <p className="text-[1rem]">
               Step into a world where each piece is personally selected to
               elevate your style, illuminate your home, and awaken the artist

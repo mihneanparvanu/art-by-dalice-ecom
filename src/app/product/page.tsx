@@ -1,5 +1,5 @@
 //Utilities
-import { fetchSingleProduct } from "../data/FetchSingleProduct";
+import { fetchSingleProduct } from "./../data/FetchSingleProduct";
 
 //Components
 import ProductDisplay from "./ProductDisplay";
