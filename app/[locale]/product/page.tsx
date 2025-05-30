@@ -13,13 +13,12 @@ interface Product {
   image_URL?: string;
 }
 
-export default async function ProductDetails({
-  searchParams,
-}: {
-  searchParams: { id: string };
-}) {
-  const id = searchParams.id;
-  const product = await fetchSingleProduct(id);
+export default async function ProductDetails({ searchParams, params}: {
+  searchParams: { id: string}, params: {locale: string}})
+  {
+  const locale = params.locale || "en"
+  const id = searchParams.id
+  const product = await fetchSingleProduct(id, locale);
   return (
     <main className="flex flex-col md:flex-row">
       <ProductDisplay img_URL={product.image_url} />

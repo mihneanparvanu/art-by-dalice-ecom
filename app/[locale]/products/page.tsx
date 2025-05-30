@@ -1,8 +1,9 @@
 import fetchProducts from "../../../data/FetchProducts";
 import ProductCard from "../../../components/product/ProductCard"
 import Link from "next/link";
-export default async function ProductsPage() {
-  const products = (await fetchProducts()).data;
+export default async function ProductsPage({params}: {params: {locale: string}}) {
+  const locale = params.locale || "en"
+  const products = await fetchProducts(locale);
   return (
     <main className="flex pt-10">
       <div className="flex flex-col items-center w-full">

@@ -1,6 +1,4 @@
-"use client";
 import "./home.css";
-import { use, useEffect, useState } from "react";
 // Components
 import Image from "next/image";
 import ButtonPrimary from "../../components/ui/ButtonPrimary";
@@ -10,7 +8,8 @@ import FetchProducts from "../../data/FetchProducts";
 import Link from "next/link";
 
 //Utilities 
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import fetchProducts from "../../data/FetchProducts";
 
 interface Painting {
   id: string;
@@ -20,33 +19,10 @@ interface Painting {
   price: string;
 }
 
-export default function Home() {
-  const t = useTranslations("Home");
- 
-
-  const [paintings, setPaintings] = useState<Painting[] | null>(null);
-  const [fetchError, setFetchError] = useState(null);
-  useEffect(() => {
-    const getPaintings = async () => {
-       console.log("Fetching");
-      setFetchError(null);
-      const { data, error } = await FetchProducts();
-     console.log("Supabase raw data:", data)
-     console.log("Supabase raw error:", error)
-
-      if (error) {
-        console.log(error);
-        setPaintings(null);
-      }
-
-      if (data) {
-        setPaintings(data);
-        setFetchError(null);
-      }
-    };
-    getPaintings()
-  }, []);
-
+export default async function Home({params}: {params: {locale: string}}) {
+  const locale = params.locale || "en"
+  const t = await getTranslations("Home");
+  const paintings = await fetchProducts(locale);
   return (
     <div>
       <section className="heroSection">
@@ -114,10 +90,6 @@ export default function Home() {
             unwavering conviction. What has awakened my own sense of wonder will
             surely kindle the same light within you.
           </p>
-        </div>
-        {/**Images container */}
-        <div className="lg:w-[60%]">
-          <Image src="" alt="" width={500} height={500}></Image>
         </div>
       </div>
     </div>
