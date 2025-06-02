@@ -1,7 +1,8 @@
 import fetchProducts from "../../../data/FetchProducts";
 import ProductCard from "../../../components/product/ProductCard"
 import Link from "next/link";
-export default async function ProductsPage({params}: {params: {locale: string}}) {
+export default async function ProductsPage(props: {params: Promise<{locale: string}>}) {
+  const params = await props.params;
   const locale = params.locale || "en"
   const products = await fetchProducts(locale);
   return (

@@ -12,17 +12,18 @@ import fetchProducts from "../../data/FetchProducts";
 
 // Define HomeParams type, explicitly including searchParams
 type HomeParams = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
   // Add searchParams as an optional property, as Next.js pages often receive it.
-  searchParams?: {
+  searchParams?: Promise<{
     [key: string]: string | string[] | undefined;
-  };
+  }>;
 };
 
 
-export default async function Home({ params }: HomeParams) {
+export default async function Home(props: HomeParams) {
+  const params = await props.params;
   const locale = params.locale || "en";
   const t = await getTranslations("Home");
   const paintings = await fetchProducts(locale);

@@ -6,9 +6,12 @@ import ProductDisplay from "./ProductDisplay";
 import ProductInfo from "./ProductInfo";
 
 
-export default async function ProductDetails({ searchParams, params}: {
-  searchParams: { id: string}, params: {locale: string}})
-  {
+export default async function ProductDetails(
+  props: {
+    searchParams: Promise<{ id: string}>, params: Promise<{locale: string}>}
+) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const locale = params.locale || "en"
   const id = searchParams.id
   const product = await fetchSingleProduct(id, locale);
