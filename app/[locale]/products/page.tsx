@@ -10,9 +10,9 @@ export default async function ProductsPage({params}: {params: {locale: string}})
         <div className="grid gap-10 grid-cols-2 lg:grid-cols-4">
           {products &&
             products.map((product) => (
-              <Link href={{ pathname: "/product", query: { id: product.id } }}>
+              <Link href={{ pathname: "/product", query: { id: product.id }}} key={product.id}>
                 <ProductCard
-                  key={product.id}
+               
                   productTitle={product.name}
                   productPrice={product.price}
                   productImageURL={product.image_url}

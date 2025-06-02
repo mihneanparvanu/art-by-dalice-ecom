@@ -5,13 +5,6 @@ import { fetchSingleProduct } from "../../../data/FetchSingleProduct";
 import ProductDisplay from "./ProductDisplay";
 import ProductInfo from "./ProductInfo";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image_URL?: string;
-}
 
 export default async function ProductDetails({ searchParams, params}: {
   searchParams: { id: string}, params: {locale: string}})

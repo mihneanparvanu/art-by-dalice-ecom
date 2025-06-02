@@ -1,23 +1,15 @@
 import "./home.css";
 // Components
-import Image from "next/image";
 import ButtonPrimary from "../../components/ui/ButtonPrimary";
 import ProductsSection from "../../components/product/ProductsSection";
 import ProductCard from "../../components/product/ProductCard";
-import FetchProducts from "../../data/FetchProducts";
+
 import Link from "next/link";
 
 //Utilities
 import { getTranslations } from "next-intl/server";
 import fetchProducts from "../../data/FetchProducts";
 
-interface Painting {
-  id: string;
-  name: string;
-  image_url?: string;
-  imageAlt?: string;
-  price: string;
-}
 
 export default async function Home({ params }: { params: { locale: string } }) {
   const locale = params.locale || "en";

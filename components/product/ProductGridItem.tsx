@@ -5,7 +5,7 @@ interface ProductGridItemProps extends HTMLAttributes<HTMLDivElement>{
     imageURL?:  string
 }
 
-export default function ProductGridItem({title, price, imageURL, ...props}: ProductGridItemProps) {
+export default function ProductGridItem({title, price, imageURL}: ProductGridItemProps) {
   return (
     <div className="w-full flex flex-col items-start gap-4">
       <div className="bg-surface-primary w-full flex justify-center items-center py-6">
