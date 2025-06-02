@@ -2,6 +2,7 @@ import Link from "next/link";
 import DaliceLogo from "../../public/icons/DaliceLogo"
 import { LucideShoppingBag } from "lucide-react";
 import { CircleUserRound } from "lucide-react";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
 
 export default function DesktopNavbar() {
   return (
@@ -17,6 +18,7 @@ export default function DesktopNavbar() {
          <DaliceLogo className="h-auto w-20 lg:w-24 xl:w-32" />
         </Link>
         <div className="flex gap-5 justify-self-end">
+          <LanguageSwitcher/>
           <Link href={"/products"}>Products</Link>
           <Link href={"/news"}>News</Link>
           <Link href={"/cart"}>

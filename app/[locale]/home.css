@@ -1,7 +1,4 @@
 @import "tailwindcss";
-
-
-
 .heroSection {
     @apply h-[80dvh] lg:h-[69vh] flex flex-col items-center gap-3 py-10 lg:flex-row lg:justify-between 
 }

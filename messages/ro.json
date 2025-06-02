@@ -1,8 +1,14 @@
 {
   "Home": {
     "hero": {
-      "heading" : "Artizanat realizat manual pentru suflete frumoase",
-      "button":"Explorează tablourile"
-    }
+      "heading": "Artizanat realizat manual pentru suflete frumoase",
+      "subheading" : "Intră într-o lume în care fiecare piesă este realizată cu grijă pentru a-ți scoate în evidență frumusețea exterioară și interioară.",
+      "button": "Explorează tablourile"
+    },
+    "paintingsSection": {
+      "title": "Toate tablourile",
+      "button": "Explorează toate tablourile"
+    },
+    "quote": "Tablourile sunt creații originale inspirate de frumusețea naturii și de poezia Monicăi și a lui Ion Pillat."
   }
 }

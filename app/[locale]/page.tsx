@@ -7,7 +7,7 @@ import ProductCard from "../../components/product/ProductCard";
 import FetchProducts from "../../data/FetchProducts";
 import Link from "next/link";
 
-//Utilities 
+//Utilities
 import { getTranslations } from "next-intl/server";
 import fetchProducts from "../../data/FetchProducts";
 
@@ -19,8 +19,8 @@ interface Painting {
   price: string;
 }
 
-export default async function Home({params}: {params: {locale: string}}) {
-  const locale = params.locale || "en"
+export default async function Home({ params }: { params: { locale: string } }) {
+  const locale = params.locale || "en";
   const t = await getTranslations("Home");
   const paintings = await fetchProducts(locale);
   return (
@@ -36,12 +36,11 @@ export default async function Home({params}: {params: {locale: string}}) {
         <div className="heroTextContainer">
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-medium lg:text-7xl lg:max-w">
-             {t("hero.heading")}
+              {t("hero.heading")}
             </h1>
             <p className="text-[1rem]">
-              Step into a world where each piece is personally selected to
-              elevate your style, illuminate your home, and awaken the artist
-              within you.
+             {t("hero.subheading")}
+             
             </p>
           </div>
           <ButtonPrimary title={t("hero.button")} className="w-fit" />
@@ -49,17 +48,19 @@ export default async function Home({params}: {params: {locale: string}}) {
       </section>
       {paintings && (
         <ProductsSection
-          sectionTitle="All paintings"
-          buttonTitle="Shop paintings"
-          products={paintings.slice(0,4).map((painting) => (
-            <Link href={{pathname:"/product", query: {id:painting.id}}} 
-            key={painting.id}>
-            <ProductCard
+          sectionTitle={t("paintingsSection.title")}
+          buttonTitle={t("paintingsSection.button")}
+          products={paintings.slice(0, 4).map((painting) => (
+            <Link
+              href={{ pathname: "/product", query: { id: painting.id } }}
               key={painting.id}
-              productTitle={painting.name}
-              productPrice={painting.price}
-              productImageURL={painting.image_url}
-            />
+            >
+              <ProductCard
+                key={painting.id}
+                productTitle={painting.name}
+                productPrice={painting.price}
+                productImageURL={painting.image_url}
+              />
             </Link>
           ))}
         />
@@ -67,9 +68,7 @@ export default async function Home({params}: {params: {locale: string}}) {
 
       <div className="flex flex-col items-center my-20 md:my-30 bg-surface-secondary text-foreground-secondary py-8 px-10 gap-1">
         <p className="text-[1.5rem] md:text-3xl max-w-[50rem]">
-          &quot;The paintings featured on this site are original creations
-          inspired by the beauty of nature and the poetry of Monica
-          Pillat.&quot;
+         {t("quote")}
         </p>
         <p className="text-[1.2rem] md:text-2xl">Dalice</p>
       </div>

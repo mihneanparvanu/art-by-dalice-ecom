@@ -1,8 +1,14 @@
 {
-    "Home": {
-        "hero": {
-            "heading" : "Handmade art for beautiful souls",
-            "button":"Shop paintings"
-        }
-    }
+  "Home": {
+    "hero": {
+      "heading": "Handmade art for beautiful souls",
+      "subheading": "Step into a world where each piece is meticulously crafted to elevate your outer and inner beauty.",
+      "button": "Shop paintings"
+    },
+    "paintingsSection": {
+      "title": "All paintings",
+      "button": "Shop all paintings"
+    },
+    "quote": "The paintings are original creations inspired by the beauty of nature and the poetry of Monica and Ion Pillat."
+  }
 }
