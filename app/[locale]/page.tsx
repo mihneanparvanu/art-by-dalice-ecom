@@ -10,11 +10,15 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import fetchProducts from "../../data/FetchProducts";
 
-// Define HomeParams type for locale param
+// Define HomeParams type, explicitly including searchParams
 type HomeParams = {
-  params :{
- locale?: string;
-  }
+  params: {
+    locale: string;
+  };
+  // Add searchParams as an optional property, as Next.js pages often receive it.
+  searchParams?: {
+    [key: string]: string | string[] | undefined;
+  };
 };
 
 
