@@ -2,7 +2,6 @@ import Link from "next/link";
 import DaliceLogo from "../../public/icons/DaliceLogo"
 import { LucideShoppingBag } from "lucide-react";
 import { CircleUserRound } from "lucide-react";
-import LanguageSwitcher from "../ui/LanguageSwitcher";
 
 export default function DesktopNavbar() {
   return (
