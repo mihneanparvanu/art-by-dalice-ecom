@@ -8,9 +8,8 @@
 
   /* Primary */
   --accent-primary: #153160;
-  --surface-primary: #F0F0F0;
-  --foreground-primary: 
-  --border-primary:
+  --surface-primary: #f3f3f3;
+  --border-primary: #dbdbdb;
  
 
   /* Secondary */
@@ -30,7 +29,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #02060A;
-    --foreground: #FFFFFC;
+    --foreground: #fdfdfd;
 /* Primary */
 --accent-primary: #153160;
 --surface-primary: #0A0A0A;
@@ -75,6 +74,7 @@
   --color-surface-primary: var(--surface-primary);
   --color-surface-secondary: var(--surface-secondary);
   --color-surface-tertiary: var(--surface-tertiary);
+  --color-border-primary:var(--border-primary);
  --color-white: #FFFFFC;
 }
 

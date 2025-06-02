@@ -6,6 +6,7 @@ import { Rubik } from 'next/font/google'
 
 //Components
 import DaliceNavbar from "../../components/layout/DaliceNavbar"
+import LanguageSwitcher from "../../components/ui/LanguageSwitcher"
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -29,9 +30,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
     
-      <body className={`antialiased ${rubik.className}`}>
-        <DaliceNavbar/>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      <body className={`antialiased relative ${rubik.className}`}>
+        <NextIntlClientProvider>
+           <DaliceNavbar/>
+       <LanguageSwitcher/>
+          {children}
+          </NextIntlClientProvider>
       </body>
     </html>
   );
