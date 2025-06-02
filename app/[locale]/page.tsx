@@ -10,8 +10,15 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import fetchProducts from "../../data/FetchProducts";
 
+// Define HomeParams type for locale param
+type HomeParams = {
+  params :{
+ locale?: string;
+  }
+};
 
-export default async function Home({ params }: { params: { locale: string } }) {
+
+export default async function Home({ params }: HomeParams) {
   const locale = params.locale || "en";
   const t = await getTranslations("Home");
   const paintings = await fetchProducts(locale);
