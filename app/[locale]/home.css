@@ -1,10 +1,46 @@
-@import "tailwindcss";
-.heroSection {
-    @apply h-[80dvh] lg:h-[69vh] flex flex-col items-center gap-3 py-10 lg:flex-row lg:justify-between 
-}
-.heroTextContainer {
-    @apply  flex flex-col gap-1 py-3 lg:flex-col lg:px-6 lg:justify-end lg:h-full lg:gap-6
-}
+    .fullWidth {
+    padding-inline: 0;
+    inline-size: 100%;
+    }
 
+    .heroSection {
+    display: flex;
+    gap: 2rem;
+    padding-block: 2rem;
+    }
 
+    .heroImageContainer {
+    inline-size: 50%;
+    }
 
+    .heroEndContainer {
+    inline-size: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-inline-end: 2rem;
+    gap: 1rem;
+    }
+
+    .heroTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    }
+
+    .heroSubheading {
+        max-inline-size: 50ch;
+    }
+
+    @media screen and (width < 1024px) {
+    .heroSection {
+        flex-direction: column;
+    }
+    .heroImageContainer {
+        inline-size: 100%;
+    }
+
+    .heroEndContainer {
+        inline-size: 100%;
+    }
+    }

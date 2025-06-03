@@ -26,6 +26,10 @@
     --warning-red: #B3001B;
 }
 
+
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #02060A;
@@ -86,4 +90,48 @@ body {
 }
 
 
+h1 {
+font-size: clamp(2rem, 4vw + 1rem, 6rem);
+line-height: 1.2;
+}
 
+h2 {
+  font-size: clamp(1.7rem, 3vw + 1rem, 5rem);
+  line-height: 1.2;
+}
+
+h3 {
+font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem)
+}
+
+p {
+font-size: clamp(0.6rem, 2vw + 0.8em, 1.2rem)
+}
+
+@media screen and (width > 1500px){
+  .wrapper {
+    inline-size: 1500px;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (width > 1299px) and (width < 1499px){
+  .wrapper {
+    inline-size: 1200px;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (width > 1024px) and (width < 1299px)
+{
+.wrapper {
+    inline-size: 1000px;
+    margin-inline: auto;
+}
+
+}
+@media screen and (width < 1024px){
+  .wrapper {
+    padding-inline: 1rem;
+}    
+}

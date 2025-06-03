@@ -8,7 +8,7 @@ export default function DesktopNavbar() {
   return (
     /**DesktopNav Container */
     <nav className="relative text-white bg-accent-primary hidden lg:flex"> 
-      <div className="container py-4 grid grid-cols-3 items-center z-50">
+      <div className="wrapper py-3 grid grid-cols-3 items-center z-50">
         <div className="flex gap-5 justify-start justify-self-start">
           <Link href={"/about"}>About</Link>
         </div>

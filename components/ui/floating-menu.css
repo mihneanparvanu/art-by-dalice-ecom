@@ -1,0 +1,84 @@
+.floatingMenu {
+  --border-radius: .7rem;
+  --options-block-padding: 0.8rem;
+  position: fixed;
+  inset-inline-start: 2rem;
+  inset-block-end: 5rem;
+  z-index: 1000;
+  font-size: 0.8rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface-primary);
+  border: .05rem solid var(--color-neutral-500);
+}
+.contentWrapper {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  inline-size: 15rem;
+}
+
+.optionWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-block: var(--options-block-padding);
+  padding-inline: 1rem;
+}
+
+.preferences {
+  border-block-start: 1px solid var(--color-neutral-500);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.quickSettings {
+  background-color: var(--color-neutral-900);
+}
+
+.quickSettings:first-child {
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+}
+
+.quickSettings:hover {
+  background-color: var(--color-neutral-800);
+}
+
+.preferences:hover {
+  background-color: var(--color-neutral-900)
+}
+
+
+.bigMenuWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  inset-block-end: 1rem;
+  padding-block: 2rem;
+  padding-inline: 2rem;
+  position: absolute;
+  z-index: 1000;
+  inline-size: 30rem;
+  background-color: var(--color-surface-primary);
+}
+
+.menuContentWrapper {
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+
+.menuContentWrapper>h4{
+  font-size: 1rem;
+}
+
+.menuContentWrapper>p{
+  line-height: 1.4rem;
+}
+
+.menuButtonsWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuHidden {
+  display: none;
+}

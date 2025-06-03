@@ -21,35 +21,30 @@ type HomeParams = {
   }>;
 };
 
-
 export default async function Home(props: HomeParams) {
   const params = await props.params;
   const locale = params.locale || "en";
   const t = await getTranslations("Home");
   const paintings = await fetchProducts(locale);
   return (
-    <div>
-      <section className="heroSection">
-        <div className="heroImageContainer relative h-[80%] w-full lg:w-[60%] lg:h-full  ">
-          <img
+    <div className="">
+      <section className="heroSection ">
+        <div className="heroImageContainer fullWidth">
+          <img 
             src="/showcase/hero.jpg"
             alt=""
-            className="object-cover rounded-[0.2rem]"
+            className="heroImage"
           ></img>
         </div>
-        <div className="heroTextContainer">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-medium lg:text-7xl lg:max-w">
-              {t("hero.heading")}
-            </h1>
-            <p className="text-[1rem]">
-             {t("hero.subheading")}
-             
-            </p>
+        <div className="heroEndContainer wrapper">
+          <div className="heroTextContainer">
+            <h1 className="heroHeading">{t("hero.heading")}</h1>
+            <p className="heroSubheading">{t("hero.subheading")}</p>
           </div>
-          <ButtonPrimary title={t("hero.button")} className="w-fit" />
+          <ButtonPrimary title={t("hero.button")} className="" />
         </div>
       </section>
+
       {paintings && (
         <ProductsSection
           sectionTitle={t("paintingsSection.title")}
@@ -70,15 +65,11 @@ export default async function Home(props: HomeParams) {
         />
       )}
 
-      <div className="flex flex-col items-center my-20 md:my-30 bg-surface-secondary text-foreground-secondary py-8 px-10 gap-1">
-        <p className="text-[1.5rem] md:text-3xl max-w-[50rem]">
-         {t("quote")}
-        </p>
-        <p className="text-[1.2rem] md:text-2xl">Dalice</p>
+      <div className="wrapper">
+        <p className="">{t("quote")}</p>
+        <p className="">Dalice</p>
       </div>
-
-      <div className="flex flex-col items-center bg-surface-primary text-foreground-secondary py-6 px-6 lg:px-16 lg:flex-row lg:gap-5">
-        {/** Text container */}
+      <div className="wrapper">
         <div>
           <p>
             My artistic creations are destined to unveil your inherent beauty,
