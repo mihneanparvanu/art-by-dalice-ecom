@@ -1,14 +1,15 @@
 .floatingMenu {
-  --border-radius: .7rem;
-  --options-block-padding: 0.8rem;
+  display: none;
+  --border-radius: 0.7rem;
+  --options-block-padding: 0.6rem;
   position: fixed;
   inset-inline-start: 2rem;
   inset-block-end: 5rem;
   z-index: 1000;
-  font-size: 0.8rem;
   border-radius: var(--border-radius);
   background-color: var(--color-surface-primary);
-  border: .05rem solid var(--color-neutral-500);
+  border: 0.05rem solid var(--color-neutral-500);
+  font-size: 0.9rem;
 }
 .contentWrapper {
   z-index: 10;
@@ -18,24 +19,25 @@
 }
 
 .optionWrapper {
+  inline-size: 100%;
   display: flex;
   justify-content: space-between;
   padding-block: var(--options-block-padding);
-  padding-inline: 1rem;
+  padding-inline: 0.5rem;
 }
+
 
 .preferences {
   border-block-start: 1px solid var(--color-neutral-500);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 }
-.quickSettings {
+.quickSettingsWrapper {
   background-color: var(--color-neutral-900);
 }
 
-.quickSettings:first-child {
-  border-top-right-radius: var(--border-radius);
-  border-top-left-radius: var(--border-radius);
+.quickSettings {
+  border-radius: calc(calc(var(--border-radius) - var(--options-block-padding))*2.5)
 }
 
 .quickSettings:hover {
@@ -43,9 +45,8 @@
 }
 
 .preferences:hover {
-  background-color: var(--color-neutral-900)
+  background-color: var(--color-neutral-900);
 }
-
 
 .bigMenuWrapper {
   display: flex;
@@ -61,16 +62,16 @@
 }
 
 .menuContentWrapper {
-display: flex;
-flex-direction: column;
-gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.menuContentWrapper>h4{
+.menuContentWrapper > h4 {
   font-size: 1rem;
 }
 
-.menuContentWrapper>p{
+.menuContentWrapper > p {
   line-height: 1.4rem;
 }
 

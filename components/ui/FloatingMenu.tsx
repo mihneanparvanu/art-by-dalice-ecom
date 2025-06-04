@@ -15,7 +15,7 @@ const FloatingMenu = () => {
 
   return (
     <div className="floatingMenu">
-      <div className={`bigMenuWrapper ${isBigMenuVisible ? '' : 'menuHidden'}`}>
+      <div className={`bigMenuWrapper ${isBigMenuVisible ? "" : "menuHidden"}`}>
         <div className="menuContentWrapper">
           <h4 className="">Language</h4>
           <p className="">
@@ -32,21 +32,28 @@ const FloatingMenu = () => {
           <button>Change language</button>
         </div>
       </div>
-
-      <div className="contentWrapper">
-        <button onClick={showBigMenu} className="optionWrapper quickSettings">
-          <p>Language</p>
-          <p>English</p>
-        </button>
-        <div className="optionWrapper quickSettings">
-          <p>Theme</p>
-          <p>Dark</p>
+      <ul className="contentWrapper">
+        <div className="quickSettingsWrapper">
         </div>
-        <div className="optionWrapper preferences">
-          <p>Menu preferences</p>
-          <p></p>
-        </div>
-      </div>
+        <li className="optionWrapper">
+          <button onClick={showBigMenu} className="optionWrapper quickSettings">
+            <span>Language</span>
+            <span>English</span>
+          </button>
+        </li>
+        <li className="optionWrapper">
+          <button className="optionWrapper quickSettings">
+            <span>Theme</span>
+            <span>Dark</span>
+          </button>
+        </li>
+        <li className="">
+          <button className="optionWrapper preferences">
+            <span>Menu preferences</span>
+            <span></span>
+          </button>
+        </li>
+      </ul>
     </div>
   );
 };
