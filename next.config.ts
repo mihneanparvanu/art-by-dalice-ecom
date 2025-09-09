@@ -1,7 +1,9 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
+import withLinaria from 'next-with-linaria';
+ 
+const withNextIntl = createNextIntlPlugin("./src/i8n/request.ts");
  
 const nextConfig: NextConfig = {};
  
-const withNextIntl = createNextIntlPlugin("./src/i8n/request.ts");
-export default withNextIntl(nextConfig);
+export default withNextIntl(withLinaria(nextConfig));

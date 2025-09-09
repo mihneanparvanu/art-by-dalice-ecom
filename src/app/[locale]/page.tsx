@@ -1,10 +1,11 @@
-import "./home.css";
+import "../../styles/home.css";
 // Components
 import ButtonPrimary from "../../components/ui/ButtonPrimary";
 import ProductsSection from "../../components/product/ProductsSection";
 import ProductCard from "../../components/product/ProductCard";
 
 import Link from "next/link";
+import Image from "next/image";
 
 //Utilities
 import { getTranslations } from "next-intl/server";
@@ -30,11 +31,13 @@ export default async function Home(props: HomeParams) {
     <div className="">
       <section className="heroSection ">
         <div className="heroImageContainer fullWidth">
-          <img 
-            src="/showcase/hero.jpg"
-            alt=""
-            className="heroImage"
-          ></img>
+        <Image src="/showcase/hero.jpg" 
+        alt="hero image"
+        width={900}
+        height = {800}
+               >
+
+        </Image>
         </div>
         <div className="heroEndContainer wrapper">
           <div className="heroTextContainer">

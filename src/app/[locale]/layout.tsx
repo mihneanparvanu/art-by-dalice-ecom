@@ -1,7 +1,7 @@
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import { routing } from '../../i8n/routing';
-import "./globals.css";
+import "../../styles/globals.css";
 import { Manrope } from 'next/font/google'
 
 //Components

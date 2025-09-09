@@ -1,22 +1,33 @@
-//Components
-import MobileNavbar from "./MobileNavbar"
-import DesktopNavbar from "./DesktopNavbar"
-//Icons
-import { Box } from "lucide-react"
-export default function Navbar() {
-    return (
-        <div className="sticky top-0 z-50">
-            <div className="flex flex-col items-center w-full bg-background">
-                <div className="flex flex-row items-center lg:py-2 gap-2">
-                    <Box className="w-5"/>
-                     <p className="font-medium text-[0.65rem] lg:text-[0.8rem]">
-                        Orders over 2000 lei get free delivery
-                        </p>
-                </div>
-               
-            </div>
-            <DesktopNavbar/>
-            <MobileNavbar/>
-        </div>
-    )
+import { css } from "@linaria/core"
+import { styled } from "@linaria/react"
+import DaliceLogo from "../../../public/icons/DaliceLogo"
+
+const NavContainer = styled.div`
+  display: flex;
+justify-content: start;
+width: 100%;
+height: fit-content;
+padding-block: 0.5rem;
+padding-inline: 2rem;
+background-color: var(--accent-primary);
+`
+
+export default function DaliceNavbar () {
+  return <NavContainer>
+    <div className={logoContainer}>
+      <DaliceLogo fill="#ffffff" 
+      className={logo}></DaliceLogo>
+    </div>
+</NavContainer>
 }
+
+// Styles
+
+const logoContainer = css`
+height: 96px;
+`
+
+const logo = css`
+width: 100%;
+height: 100%;
+`
