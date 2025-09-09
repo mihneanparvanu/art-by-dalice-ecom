@@ -5,55 +5,63 @@ import { LucideCircleUser } from "lucide-react";
 import Link from "next/link";
 
 const NavContainer = styled.div`
+  background-color: var(--accent-primary);
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const InnerContainer = styled.div`
+  position: relative;
   width: 100%;
-  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-block: 0.5rem;
   padding-inline: 2rem;
-  background-color: var(--accent-primary);
+`;
+
+const LogoContainer = styled.div`
+  height: 5rem;
+`;
+
+const Menu = styled.div`
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 4%;
+`;
+const IconsContainer = styled.div`
+  display: flex;
 `;
 
 export default function DaliceNavbar() {
   return (
     <NavContainer>
-      <div className={logoContainer}>
-        <DaliceLogo fill="#ffffff" className={logo}></DaliceLogo>
-      </div>
-      <div className={menu}>
-        <Link href="">Shop</Link>
-        <Link href="">Discover</Link>
-        <Link href="">Galleries</Link>
-        <Link href="">Contact</Link>
-      </div>
-      <div>
-        <div></div>
-        <div>
+      <InnerContainer className="container">
+        <LogoContainer>
+          <DaliceLogo fill="#ffffff" className={Logo}></DaliceLogo>
+        </LogoContainer>
+        <Menu>
+          <Link href="">Shop</Link>
+          <Link href="">Discover</Link>
+          <Link href="">Galleries</Link>
+          <Link href="">Contact</Link>
+        </Menu>
+        <IconsContainer>
           <LucideCircleUser></LucideCircleUser>
-        </div>
-      </div>
+        </IconsContainer>
+      </InnerContainer>
     </NavContainer>
   );
 }
 
-// Styles
-
-const logoContainer = css`
-  height: 5rem;
-`;
-
-const logo = css`
+const Logo = css`
   width: 100%;
   height: 100%;
-`;
-
-const menu = css`
-  position: absolute;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 4%;
-  text-transform: uppercase;
-  display: flex;
-  gap: 1rem;
 `;
