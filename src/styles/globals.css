@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
-
 :root {
+/* Base */
+--white: #F9F9F9;
+--dalice-blue: #153160;
+--black: #1e1e1e;
+
   /* Base Light Mode */
-  --background: #FFFFFC;
-  --foreground: #02060A;
+  --background: var(--white);
+  --foreground: var(--black);
 
   /* Primary */
   --accent-primary: #153160;
   --surface-primary: #f3f3f3;
   --border-primary: #dbdbdb;
  
-
   /* Secondary */
    --accent-secondary: #00A7E1;
    --surface-secondary: #E3E3E3;
@@ -32,8 +35,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #02060A;
-    --foreground: #fdfdfd;
+    --background: var(--black);
+    --foreground: var(--white);
 /* Primary */
 --accent-primary: #153160;
 --surface-primary: #0A0A0A;
