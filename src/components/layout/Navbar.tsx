@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
-import DaliceLogo from "../../../public/icons/DaliceLogo";
+import DaliceLogo from "../icons/DaliceLogo";
 import { LucideCircleUser } from "lucide-react";
 import Link from "next/link";
 

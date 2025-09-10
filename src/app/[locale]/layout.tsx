@@ -5,7 +5,7 @@ import "../../styles/globals.css";
 import { Manrope } from 'next/font/google'
 
 //Components
-import DaliceNavbar from "../../components/layout/DaliceNavbar"
+import Navbar from "../../components/layout/Navbar"
 import FloatingMenu from '../../components/ui/FloatingMenu';
 
 const manrope = Manrope({
@@ -32,7 +32,7 @@ export default async function LocaleLayout({
     
       <body className={`antialiased relative ${manrope.className}`}>
         <NextIntlClientProvider>
-           <DaliceNavbar/>
+          <Navbar/>
        <FloatingMenu/>
           {children}
           </NextIntlClientProvider>
