@@ -26,19 +26,17 @@ const HeroSection = styled.section`
   display: flex;
   gap: 2rem;
   padding-block: 2rem;
-  background-color: var(--accent-primary);
-
+  background-color: var(--surface-secondary);
   @media screen and (width < 1024px) {
     flex-direction: column;
   }
 `;
 
-const ImageContainer = styled.div`
-`;
+const ImageContainer = styled.div``;
 
 const HeroImage = css`
   width: 100%;
-`
+`;
 
 const HeroTextButtonContainer = styled.div`
   width: 50%;
@@ -47,7 +45,6 @@ const HeroTextButtonContainer = styled.div`
   justify-content: end;
   gap: 1rem;
   padding-inline-end: 2 rem;
-
   @media screen and (width < 1024px) {
     width: 100%;
     padding-inline: 1rem;
@@ -59,10 +56,9 @@ const HeroTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
+
   @media screen and (width < 1024px) {
-   
-  width: 100%;
+    width: 100%;
   }
 `;
 
@@ -90,7 +86,8 @@ export default async function Home(props: HomeParams) {
     <>
       <HeroSection>
         <ImageContainer>
-          <Image className={HeroImage}
+          <Image
+            className={HeroImage}
             src="/showcase/hero.jpg"
             alt="hero image"
             width={900}

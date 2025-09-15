@@ -1,97 +1,67 @@
 @import "tailwindcss";
 
 :root {
-/* Base */
---white: rgb(249, 249, 249);
---gray-800: rgb(44, 44, 44);
---black: rgb(16 16 16);
+  /* Base */
+  --white: rgb(249, 249, 249);
+  --gray-900: rgb(228, 235, 246);
+  --gray-200: rgb(44, 44, 44);
+  --black: rgb(16 16 16);
 
-/* Accent */
---dalice-blue: rgb(21, 49, 96);
+  /* Accent */
+  --dalice-blue: rgb(21, 49, 96);
 
-/* Surface */
---surface-primary: rgb(var(--black));
-
-  /* Base Light Mode */
+  /* Surface */
+  --surface-primary: rgb(var(--white));
+  --surface-secondary: rgb(var(--gray-900));
   --background: var(--white);
-  --foreground: var(--gray-800)
+  --foreground: var(--gray-200);
 
-  
-
-  /* Accent */ 
-    --accent-primary: var(--dalice-blue);
-
-
-/* Typography */
+  /* Accent */
+  --accent-primary: var(--dalice-blue);
+  /* Typography */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Surface */
+    --surface-primary: rgb(var(--black));
+    --surface-secondary: rgb(var(--gray-200));
     --background: var(--black);
     --foreground: var(--white);
 
---accent-primary: #153160;
---surface-primary: #0A0A0A;
---foreground-primary: 
---border-primary: #262626;
-
- --accent-secondary: #00A7E1;
- --surface-secondary: #1B1B1B;
- --foreground-secondary: 
- --border-secondary:
-
-  
-
-  --warning-red: #B3001B;
-
+    --surface-primary: #0a0a0a;
+    --foreground-primary: --border-primary: #262626;
   }
 }
- 
 
 @layer utilities {
   .container {
     width: 100%;
     margin-inline: auto;
-    @media(min-width: 100rem){
+    @media (min-width: 100rem) {
       max-width: 90%;
     }
-  @media(max-width: 80rem){
-    max-width: 85%;
+    @media (max-width: 80rem) {
+      max-width: 85%;
+    }
   }
-  
-  }
-
   .contour {
     border: 0.15rem solid var(--color-accent-secondary);
   }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-   --color-accent-primary: var(--accent-primary);
-   --color-accent-secondary: var(--accent-secondary);
-  --color-surface-primary: var(--surface-primary);
-  --color-surface-secondary: var(--surface-secondary);
-  --color-surface-tertiary: var(--surface-tertiary);
-  --color-border-primary:var(--border-primary);
- --color-white: #FFFFFC;
-}
-
-
 body {
   --font-sans: var(--font-manrope);
---font-serif: var(--font-cormorant-garamond);
+  --font-serif: var(--font-cormorant-garamond);
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
 
-
 h1 {
-font-size: clamp(2rem, 4vw + 1rem, 6rem);
-line-height: 1.1;
-font-weight: 700;
+  font-size: clamp(2rem, 4vw + 1rem, 6rem);
+  line-height: 1.1;
+  font-weight: 700;
 }
 
 h2 {
@@ -100,39 +70,36 @@ h2 {
 }
 
 h3 {
-font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem)
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 4rem);
 }
 
 p {
-font-size: clamp(0.6rem, 2vw + 0.8em, 1.1rem);
-font-weight: 400;
+  font-size: clamp(0.6rem, 2vw + 0.8em, 1.1rem);
+  font-weight: 400;
 }
 
-
-@media screen and (width > 1500px){
+@media screen and (width > 1500px) {
   .wrapper {
     inline-size: 1500px;
     margin-inline: auto;
   }
 }
 
-@media screen and (width > 1299px) and (width < 1499px){
+@media screen and (width > 1299px) and (width < 1499px) {
   .wrapper {
     inline-size: 1200px;
     margin-inline: auto;
   }
 }
 
-@media screen and (width > 1024px) and (width < 1299px)
-{
-.wrapper {
+@media screen and (width > 1024px) and (width < 1299px) {
+  .wrapper {
     inline-size: 1000px;
     margin-inline: auto;
+  }
 }
-
-}
-@media screen and (width < 1024px){
+@media screen and (width < 1024px) {
   .wrapper {
     padding-inline: 1rem;
-}    
+  }
 }
