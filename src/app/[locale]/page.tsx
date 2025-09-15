@@ -1,4 +1,5 @@
 import "../../styles/home.css";
+import { styled } from "@linaria/react";
 // Components
 import ButtonPrimary from "../../components/ui/ButtonPrimary";
 import ProductsSection from "../../components/product/ProductsSection";
@@ -7,20 +8,28 @@ import ProductCard from "../../components/product/ProductCard";
 import Link from "next/link";
 import Image from "next/image";
 
-//Utilities
+// Utilities
 import { getTranslations } from "next-intl/server";
 import fetchProducts from "../../data/FetchProducts";
 
-// Define HomeParams type, explicitly including searchParams
 type HomeParams = {
   params: Promise<{
     locale: string;
   }>;
-  // Add searchParams as an optional property, as Next.js pages often receive it.
   searchParams?: Promise<{
     [key: string]: string | string[] | undefined;
   }>;
 };
+
+// Styles
+const HeroSection = styled.section`
+  display: flex;
+  gap: 2rem;
+  padding-block: 2rem;
+`;
+
+const ImageContainer = styled.div`
+`;
 
 export default async function Home(props: HomeParams) {
   const params = await props.params;
@@ -29,24 +38,29 @@ export default async function Home(props: HomeParams) {
   const paintings = await fetchProducts(locale);
   return (
     <div className="">
-      <section className="heroSection ">
-        <div className="heroImageContainer fullWidth">
-        <Image src="/showcase/hero.jpg" 
-        alt="hero image"
-        width={900}
-        height = {800}
-               >
-
-        </Image>
-        </div>
+      <HeroSection>
+        <ImageContainer>
+          <Image
+            src="/showcase/hero.jpg"
+            alt="hero image"
+            width={900}
+            height={800}
+          ></Image>
+        </ImageContainer>
         <div className="heroEndContainer wrapper">
-          <div className="heroTextContainer">
-            <h1 className="heroHeading">{t("hero.heading")}</h1>
+          <div className="hero-text-container">
+            <h1 className="heroHeading">
+              {t("hero.heading")}
+              <span className="hero-heading-span">
+                {" "}
+                {t("hero.heading-span")}
+              </span>
+            </h1>
             <p className="heroSubheading">{t("hero.subheading")}</p>
           </div>
           <ButtonPrimary title={t("hero.button")} className="" />
         </div>
-      </section>
+      </HeroSection>
 
       {paintings && (
         <ProductsSection
