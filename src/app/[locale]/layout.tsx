@@ -1,48 +1,49 @@
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import {notFound} from 'next/navigation';
-import { routing } from '../../i8n/routing';
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "../../i8n/routing";
 import "../../styles/globals.css";
-import { Manrope } from 'next/font/google'
-import { Cormorant_Garamond } from 'next/font/google';
+import { Manrope } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
 
 //Components
-import Navbar from "../../components/layout/Navbar"
-import FloatingMenu from '../../components/ui/FloatingMenu';
+import Navbar from "../../components/layout/Navbar";
+import FloatingMenu from "../../components/ui/FloatingMenu";
 
 const manrope = Manrope({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-manrope',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-manrope",
+});
 
-const cormorant = Cormorant_Garamond ({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-cormorant-garamond'
-})
- 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cormorant-garamond",
+});
+
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
   // Ensure that the incoming `locale` is valid
-  const {locale} = await params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
- 
+
   return (
     <html lang={locale}>
-    
-      <body className={`antialiased relative ${manrope.variable} ${cormorant.variable}`}>
+      <body
+        className={`antialiased relative ${manrope.variable} ${cormorant.variable}`}
+      >
         <NextIntlClientProvider>
-          <Navbar/>
-       <FloatingMenu/>
+          <Navbar />
+          <FloatingMenu />
           {children}
-          </NextIntlClientProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

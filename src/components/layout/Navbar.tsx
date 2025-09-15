@@ -9,7 +9,7 @@ export default function DaliceNavbar() {
     <NavContainer>
       <InnerContainer className="container">
         <LogoContainer>
-          <DaliceLogo fill="var(--white)" className={Logo}></DaliceLogo>
+          <DaliceLogo className={Logo}></DaliceLogo>
         </LogoContainer>
         <Menu>
           <Link href="">Shop</Link>
@@ -27,7 +27,9 @@ export default function DaliceNavbar() {
 
 // Styles
 const NavContainer = styled.div`
+  --content-color: var(--white);
   background-color: var(--accent-primary);
+  color: var(--content-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,9 +64,10 @@ const Menu = styled.div`
 
 const IconsContainer = styled.div`
   display: flex;
-`
+`;
 
 const Logo = css`
+  fill: var(--content-color);
   width: 100%;
   height: 100%;
 `;

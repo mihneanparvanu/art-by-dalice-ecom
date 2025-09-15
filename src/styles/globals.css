@@ -11,8 +11,8 @@
   --dalice-blue: rgb(21, 49, 96);
 
   /* Surface */
-  --surface-primary: rgb(var(--white));
-  --surface-secondary: rgb(var(--gray-900));
+  --surface-primary: var(--white);
+  --surface-secondary: var(--gray-900);
   --background: var(--white);
   --foreground: var(--gray-200);
 
@@ -26,11 +26,8 @@
     /* Surface */
     --surface-primary: rgb(var(--black));
     --surface-secondary: rgb(var(--gray-200));
-    --background: var(--black);
+    --background: var(--surface-primary);
     --foreground: var(--white);
-
-    --surface-primary: #0a0a0a;
-    --foreground-primary: --border-primary: #262626;
   }
 }
 
