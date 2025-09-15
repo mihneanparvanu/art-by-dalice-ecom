@@ -1,5 +1,5 @@
-import "../../styles/home.css";
 import { styled } from "@linaria/react";
+import { css } from "@linaria/core";
 // Components
 import ButtonPrimary from "../../components/ui/ButtonPrimary";
 import ProductsSection from "../../components/product/ProductsSection";
@@ -26,14 +26,43 @@ const HeroSection = styled.section`
   display: flex;
   gap: 2rem;
   padding-block: 2rem;
+
+  @media screen and (width < 1024px) {
+    flex-direction: column;
+  }
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+`;
+
+const HeroImage = css`
+  width: 100%;
+`
+
+const HeroTextButtonContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 1rem;
+  padding-inline-end: 2 rem;
+
+  @media screen and (width < 1024px) {
+    width: 100%;
+    padding-inline: 1rem;
+  }
+`;
 
 const HeroTextContainer = styled.div`
+  width: 65ch;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  
+  @media screen and (width < 1024px) {
+   
+  width: 100%;
+  }
 `;
 
 const HeroHeading = styled.h1`
@@ -47,10 +76,9 @@ const HeadingSpan = styled.span`
   font-style: italic;
 `;
 
-
-const PaintingsSection = styled.section `
+const PaintingsSection = styled.section`
   display: flex;
-`
+`;
 
 export default async function Home(props: HomeParams) {
   const params = await props.params;
@@ -61,14 +89,14 @@ export default async function Home(props: HomeParams) {
     <>
       <HeroSection>
         <ImageContainer>
-          <Image
+          <Image className={HeroImage}
             src="/showcase/hero.jpg"
             alt="hero image"
             width={900}
             height={800}
           ></Image>
         </ImageContainer>
-        <div className="heroEndContainer wrapper">
+        <HeroTextButtonContainer>
           <HeroTextContainer>
             <HeroHeading>
               {t("hero.heading")}
@@ -77,28 +105,29 @@ export default async function Home(props: HomeParams) {
             <p className="heroSubheading">{t("hero.subheading")}</p>
           </HeroTextContainer>
           <ButtonPrimary title={t("hero.button")} className="" />
-        </div>
+        </HeroTextButtonContainer>
       </HeroSection>
       <PaintingsSection>
-      {paintings && (
-        <ProductsSection
-          sectionTitle={t("paintingsSection.title")}
-          buttonTitle={t("paintingsSection.button")}
-          products={paintings.slice(0, 4).map((painting) => (
-            <Link
-              href={{ pathname: "/product", query: { id: painting.id } }}
-              key={painting.id}
-            >
-              <ProductCard
+        {paintings && (
+          <ProductsSection
+            sectionTitle={t("paintingsSection.title")}
+            buttonTitle={t("paintingsSection.button")}
+            products={paintings.slice(0, 4).map((painting) => (
+              <Link
+                href={{ pathname: "/product", query: { id: painting.id } }}
                 key={painting.id}
-                productTitle={painting.name}
-                productPrice={painting.price}
-                productImageURL={painting.image_url}
-              />
-            </Link>
-          ))}
-        />
-      )}
+              >
+                <ProductCard
+                  key={painting.id}
+                  productTitle={painting.name}
+                  productPrice={painting.price}
+                  productImageURL={painting.image_url}
+                />
+              </Link>
+            ))}
+          />
+        )}
       </PaintingsSection>
-      </>
-    )}
+    </>
+  );
+}
