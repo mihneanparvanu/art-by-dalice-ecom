@@ -28,8 +28,29 @@ const HeroSection = styled.section`
   padding-block: 2rem;
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div``;
+
+const HeroTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
+
+const HeroHeading = styled.h1`
+  font-size: 6rem;
+  font-family: var(--font-serif);
+  line-height: 1.1;
+  font-weight: 600;
+`;
+
+const HeadingSpan = styled.span`
+  font-style: italic;
+`;
+
+
+const PaintingsSection = styled.section `
+  display: flex;
+`
 
 export default async function Home(props: HomeParams) {
   const params = await props.params;
@@ -37,7 +58,7 @@ export default async function Home(props: HomeParams) {
   const t = await getTranslations("Home");
   const paintings = await fetchProducts(locale);
   return (
-    <div className="">
+    <>
       <HeroSection>
         <ImageContainer>
           <Image
@@ -48,20 +69,17 @@ export default async function Home(props: HomeParams) {
           ></Image>
         </ImageContainer>
         <div className="heroEndContainer wrapper">
-          <div className="hero-text-container">
-            <h1 className="heroHeading">
+          <HeroTextContainer>
+            <HeroHeading>
               {t("hero.heading")}
-              <span className="hero-heading-span">
-                {" "}
-                {t("hero.heading-span")}
-              </span>
-            </h1>
+              <HeadingSpan> {t("hero.heading-span")} </HeadingSpan>
+            </HeroHeading>
             <p className="heroSubheading">{t("hero.subheading")}</p>
-          </div>
+          </HeroTextContainer>
           <ButtonPrimary title={t("hero.button")} className="" />
         </div>
       </HeroSection>
-
+      <PaintingsSection>
       {paintings && (
         <ProductsSection
           sectionTitle={t("paintingsSection.title")}
@@ -81,28 +99,6 @@ export default async function Home(props: HomeParams) {
           ))}
         />
       )}
-
-      <div className="wrapper">
-        <p className="">{t("quote")}</p>
-        <p className="">Dalice</p>
-      </div>
-      <div className="wrapper">
-        <div>
-          <p>
-            My artistic creations are destined to unveil your inherent beauty,
-            to illuminate your elegant style and cultivate your refined
-            sensibilities. To adorn yourself with &quot;Dalice&quot; jewelry, to
-            grace your home with my luminous lamps, or to let my paintings speak
-            to your soul&mdash;this is to transform uncertainty into shared
-            wonder, to transmute the mundane into the sublime. When art becomes
-            part of your daily ritual, stress dissolves into harmony, the spirit
-            finds its rhythm, and each moment blooms with quiet joy. The
-            transformative power of beauty is assured&mdash;this I believe with
-            unwavering conviction. What has awakened my own sense of wonder will
-            surely kindle the same light within you.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+      </PaintingsSection>
+      </>
+    )}

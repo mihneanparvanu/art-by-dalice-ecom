@@ -3,6 +3,7 @@ import {notFound} from 'next/navigation';
 import { routing } from '../../i8n/routing';
 import "../../styles/globals.css";
 import { Manrope } from 'next/font/google'
+import { Cormorant_Garamond } from 'next/font/google';
 
 //Components
 import Navbar from "../../components/layout/Navbar"
@@ -12,6 +13,12 @@ const manrope = Manrope({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-manrope',
+})
+
+const cormorant = Cormorant_Garamond ({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-cormorant-garamond'
 })
  
 export default async function LocaleLayout({
@@ -30,7 +37,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
     
-      <body className={`antialiased relative ${manrope.className}`}>
+      <body className={`antialiased relative ${manrope.variable} ${cormorant.variable}`}>
         <NextIntlClientProvider>
           <Navbar/>
        <FloatingMenu/>

@@ -8,16 +8,6 @@
     gap: 1rem;
     }
 
-    .hero-text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    }
-
-    .heroSubheading {
-        max-inline-size: 50ch;
-    }
-
     @media screen and (width < 1024px) {
     .heroSection {
         flex-direction: column;
