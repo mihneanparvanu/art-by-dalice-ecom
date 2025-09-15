@@ -2,40 +2,29 @@
 
 :root {
 /* Base */
---white: #F9F9F9;
+--white: rgb(249, 249, 249);
 --gray-800: rgb(44, 44, 44);
---black: #1e1e1e;
+--black: rgb(16 16 16);
 
---dalice-blue: #153160;
+/* Accent */
+--dalice-blue: rgb(21, 49, 96);
+
+/* Surface */
+--surface-primary: rgb(var(--black));
 
   /* Base Light Mode */
   --background: var(--white);
-  --foreground: var(--gray-800);
-
-  /* Primary */
-  --accent-primary: #153160;
-  --surface-primary: #f3f3f3;
-  --border-primary: #dbdbdb;
- 
-  /* Secondary */
-   --accent-secondary: #00A7E1;
-   --surface-secondary: #E3E3E3;
-   --foreground-secondary: 
-   --border-secondary:
+  --foreground: var(--gray-800)
 
   
 
-  /* Colors */ 
-    --warning-red: #B3001B;
+  /* Accent */ 
+    --accent-primary: var(--dalice-blue);
 
 
 /* Typography */
 }
 
-
-
-
-/* Dark Mode
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--black);
@@ -57,7 +46,7 @@
 
   }
 }
- */
+ 
 
 @layer utilities {
   .container {

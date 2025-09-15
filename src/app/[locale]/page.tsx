@@ -26,6 +26,7 @@ const HeroSection = styled.section`
   display: flex;
   gap: 2rem;
   padding-block: 2rem;
+  background-color: var(--accent-primary);
 
   @media screen and (width < 1024px) {
     flex-direction: column;
