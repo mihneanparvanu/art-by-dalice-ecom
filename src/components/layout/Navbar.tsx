@@ -9,7 +9,7 @@ export default function DaliceNavbar() {
     <NavContainer>
       <InnerContainer className="container">
         <LogoContainer>
-          <DaliceLogo className={Logo}></DaliceLogo>
+          <DaliceLogo className={Logo} showText={true}></DaliceLogo>
         </LogoContainer>
         <Menu>
           <Link href="">Shop</Link>
@@ -46,7 +46,7 @@ const InnerContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  height: 5rem;
+  height: 6rem;
 `;
 
 const Menu = styled.div`
