@@ -1,7 +1,6 @@
 import { styled } from "@linaria/react";
 import { css } from "@linaria/core";
 // Components
-import ButtonPrimary from "../../components/ui/ButtonPrimary";
 import ProductsSection from "../../components/product/ProductsSection";
 import ProductCard from "../../components/product/ProductCard";
 
@@ -25,25 +24,31 @@ type HomeParams = {
 const HeroSection = styled.section`
   display: flex;
   gap: 2rem;
-  padding-block: 2rem;
+  height: 90dvh;
   background-color: var(--surface-secondary);
   @media screen and (width < 1024px) {
     flex-direction: column;
   }
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+height: 100%;
+`;
 
 const HeroImage = css`
+height: 100%;
+object-fit: cover;
   width: 100%;
 `;
 
 const HeroTextButtonContainer = styled.div`
-  width: 60%;
+ padding-block-end: 2rem;
+ padding-inline: 1rem;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  gap: 1rem;
+  gap: 3rem;
   padding-inline-end: 2 rem;
   @media screen and (width < 1024px) {
     width: 100%;
@@ -52,10 +57,11 @@ const HeroTextButtonContainer = styled.div`
 `;
 
 const HeroTextContainer = styled.div`
+color: var(--accent-primary);
   width: 65ch;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 
   @media screen and (width < 1024px) {
     width: 100%;
@@ -88,7 +94,7 @@ export default async function Home(props: HomeParams) {
         <ImageContainer>
           <Image
             className={HeroImage}
-            src="/showcase/hero.jpg"
+            src="/hero/hero.jpg"
             alt="hero image"
             width={900}
             height={800}
@@ -102,7 +108,6 @@ export default async function Home(props: HomeParams) {
             </HeroHeading>
             <p className="heroSubheading">{t("hero.subheading")}</p>
           </HeroTextContainer>
-          <ButtonPrimary title={t("hero.button")} className="" />
         </HeroTextButtonContainer>
       </HeroSection>
       <PaintingsSection>

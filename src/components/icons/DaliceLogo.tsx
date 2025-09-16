@@ -1,17 +1,32 @@
 import React, { SVGProps } from "react";
+import { styled } from "@linaria/react";
 
 interface DaliceLogoProps extends SVGProps<SVGElement> {
   showText?: boolean;
 }
 
 const DaliceLogo = ({ showText = false, className }: DaliceLogoProps) => {
+
+const StyledSVG = styled.svg`
+  display: block;
+  width: 100%;
+  max-width: 295px;
+  height: auto;
+  margin: 0 auto;
+`;
+
+
+  const viewBoxWidth = 295;
+const logomarkHeight = 230;
+const textHeight = 30;
+const viewBoxHeight = showText ? logomarkHeight + textHeight : logomarkHeight;
+
+
   return (
-    <>
-      <svg
+    <StyledSVG
         className={className}
-        width="295"
-        height="260"
-        viewBox={`0 0 295 ${showText ? 260 : 230}`}
+        viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
+   preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -88,8 +103,7 @@ const DaliceLogo = ({ showText = false, className }: DaliceLogoProps) => {
             />
           </g>
         )}
-      </svg>
-    </>
+      </StyledSVG>
   );
 };
 export default DaliceLogo;

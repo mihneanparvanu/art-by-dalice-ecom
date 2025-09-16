@@ -9,7 +9,7 @@ export default function DaliceNavbar() {
     <NavContainer>
       <InnerContainer className="container">
         <LogoContainer>
-          <DaliceLogo className={Logo} showText={true}></DaliceLogo>
+          <DaliceLogo className={Logo} ></DaliceLogo>
         </LogoContainer>
         <Menu>
           <Link href="">Shop</Link>
@@ -46,20 +46,21 @@ const InnerContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  height: 6rem;
+  height: 5rem;
 `;
 
 const Menu = styled.div`
+--text-size: 1rem;
   position: absolute;
   left: 0;
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 1.8rem;
-  font-size: 0.9rem;
+  font-size: var(--text-size);
   text-transform: uppercase;
   font-weight: 400;
-  letter-spacing: 4%;
+  letter-spacing: 0.04em;
 `;
 
 const IconsContainer = styled.div`
