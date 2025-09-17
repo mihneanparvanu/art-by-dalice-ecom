@@ -1,27 +1,34 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
-import DaliceLogo from "../icons/DaliceLogo";
-
-import { LucideCircleUser } from "lucide-react";
 import Link from "next/link";
 
+import DaliceLogo from "../icons/DaliceLogo";
+import { LucideCircleUser } from "lucide-react";
+
+import AlbumsDisplay from "@/components/product/FetchAlbums";
 
 export default function DaliceNavbar() {
   return (
-    <NavContainer className = {`root-container`
-
-}
->
-      <InnerContainer className="container">
+    <NavContainer>
+      <InnerContainer>
         <LogoContainer>
-          <DaliceLogo className={Logo} ></DaliceLogo>
+          <DaliceLogo className={Logo}></DaliceLogo>
         </LogoContainer>
         <Menu>
-          <Link id="shop" href="">Shop</Link>
+          <Link id="shop" href="">
+            Shop
+          </Link>
           <Link href="">Discover</Link>
           <Link href="">Galleries</Link>
           <Link href="">Contact</Link>
-<HoverMenu id="hover-menu"/>
+          <HoverMenu id="hover-menu">
+            <HoverMenuAlbumsContainer>
+              <AlbumsTitleContainer>
+                <h6>Albums</h6>
+              </AlbumsTitleContainer>
+              <AlbumsDisplay className={AlbumsContainer}></AlbumsDisplay>
+            </HoverMenuAlbumsContainer>
+          </HoverMenu>
         </Menu>
         <IconsContainer>
           <LucideCircleUser></LucideCircleUser>
@@ -40,13 +47,11 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 101;
 
-
-#shop:hover ~#hover-menu{
-  display: block;
-} 
-;
-
+  :has(#shop:hover) #hover-menu {
+    display: flex;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -56,7 +61,7 @@ const InnerContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-block: 0.5rem;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
 `;
 
 const LogoContainer = styled.div`
@@ -64,7 +69,7 @@ const LogoContainer = styled.div`
 `;
 
 const Menu = styled.div`
---text-size: 1rem;
+  --text-size: 1rem;
   position: absolute;
   left: 0;
   display: flex;
@@ -90,13 +95,35 @@ const Logo = css`
 // Shop Hover Menu
 
 const HoverMenu = styled.div`
-display: none;
-position: absolute;
-top: 40px;
-background-color: var(--accent-primary);
-width: 80%;
-height: 16rem;
-border-radius: 1rem ;
+  text-transform: none;
+  display: none;
+  position: absolute;
+  top: 40px;
+  background-color: var(--accent-primary);
+  width: 80%;
+  height: 16rem;
+  border-radius: 1rem;
+  padding-inline: 1.25rem;
+  padding-block: 2rem;
+  z-index: 99;
+  gap: 1rem;
+  overflow: hidden;
+`;
 
+const HoverMenuAlbumsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
 
-`
+const AlbumsTitleContainer = styled.div`
+  text-transform: uppercase;
+  font-size: 0.8rem;
+`;
+
+const AlbumsContainer = css`
+  height: 100%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
