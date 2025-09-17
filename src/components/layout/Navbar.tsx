@@ -1,38 +1,14 @@
 import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import DaliceLogo from "../icons/DaliceLogo";
-import AlbumsHoverMenu from "./AlbumsHoverMenu";
+
 import { LucideCircleUser } from "lucide-react";
 import Link from "next/link";
 
 
-const Root = css`
-
-.root-container {
-
-  & .hover-menu {
-  display: none;
-}
-
-& #shop:hover ~ .hover-menu{
-
-    display: flex;
-  
-}
-
-
-
-
-
-
-
-
-}
-`
-
 export default function DaliceNavbar() {
   return (
-    <NavContainer className = {`root-container ${Root}`
+    <NavContainer className = {`root-container`
 
 }
 >
@@ -45,6 +21,7 @@ export default function DaliceNavbar() {
           <Link href="">Discover</Link>
           <Link href="">Galleries</Link>
           <Link href="">Contact</Link>
+<HoverMenu id="hover-menu"/>
         </Menu>
         <IconsContainer>
           <LucideCircleUser></LucideCircleUser>
@@ -103,3 +80,15 @@ const Logo = css`
   width: 100%;
   height: 100%;
 `;
+
+// Shop Hover Menu
+
+const HoverMenu = styled.div`
+position: absolute;
+top: 90px;
+background-color: var(--white);
+width: 60%;
+height: 10rem;
+
+
+`
