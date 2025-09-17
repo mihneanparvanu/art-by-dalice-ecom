@@ -17,7 +17,7 @@ export default function DaliceNavbar() {
           <DaliceLogo className={Logo} ></DaliceLogo>
         </LogoContainer>
         <Menu>
-          <Link id="shop"href="">Shop</Link>
+          <Link id="shop" href="">Shop</Link>
           <Link href="">Discover</Link>
           <Link href="">Galleries</Link>
           <Link href="">Contact</Link>
@@ -27,7 +27,6 @@ export default function DaliceNavbar() {
           <LucideCircleUser></LucideCircleUser>
         </IconsContainer>
       </InnerContainer>
-        < AlbumsHoverMenu className= "hover-menu"></AlbumsHoverMenu>
     </NavContainer>
   );
 }
@@ -41,6 +40,13 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+
+#shop:hover ~#hover-menu{
+  display: block;
+} 
+;
+
 `;
 
 const InnerContainer = styled.div`
@@ -84,11 +90,13 @@ const Logo = css`
 // Shop Hover Menu
 
 const HoverMenu = styled.div`
+display: none;
 position: absolute;
-top: 90px;
-background-color: var(--white);
-width: 60%;
-height: 10rem;
+top: 40px;
+background-color: var(--accent-primary);
+width: 80%;
+height: 16rem;
+border-radius: 1rem ;
 
 
 `
