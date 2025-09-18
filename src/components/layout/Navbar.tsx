@@ -3,7 +3,7 @@ import { styled } from "@linaria/react";
 import Link from "next/link";
 
 import DaliceLogo from "../icons/DaliceLogo";
-import { LucideCircleUser } from "lucide-react";
+import { LucideUser } from "lucide-react";
 
 import fetchAlbums from "@/data/FetchAlbums";
 
@@ -12,34 +12,37 @@ export default async function DaliceNavbar() {
   console.log(albums);
   return (
     <NavContainer>
-      <InnerContainer>
+      <InnerContainer role="nav">
         <LogoContainer>
           <DaliceLogo className={Logo}></DaliceLogo>
         </LogoContainer>
         <Menu>
-          <Link id="shop" href="">
-            Shop
-          </Link>
+          <ShopDropdown id="shop-dropdown">
+            <Link id="shop" href="">
+              Shop
+            </Link>
+            <HoverMenu role="menu" id="hover-menu">
+              <HoverMenuAlbumsContainer>
+                <AlbumsTitleContainer>
+                  <h6>Albums</h6>
+                </AlbumsTitleContainer>
+                <AlbumsContainer>
+                  {albums.map((value, index) => (
+                    <Link key={index} href="">
+                      {value}
+                    </Link>
+                  ))}
+                </AlbumsContainer>
+              </HoverMenuAlbumsContainer>
+              <HoverMenuProductsContainer></HoverMenuProductsContainer>
+            </HoverMenu>
+          </ShopDropdown>
           <Link href="">Discover</Link>
           <Link href="">Galleries</Link>
           <Link href="">Contact</Link>
-          <HoverMenu id="hover-menu">
-            <HoverMenuAlbumsContainer>
-              <AlbumsTitleContainer>
-                <h6>Albums</h6>
-              </AlbumsTitleContainer>
-              <AlbumsContainer>
-                {albums.map((value, index) => (
-                  <Link key={index} href="">
-                    {value}
-                  </Link>
-                ))}
-              </AlbumsContainer>
-            </HoverMenuAlbumsContainer>
-          </HoverMenu>
         </Menu>
         <IconsContainer>
-          <LucideCircleUser></LucideCircleUser>
+          <LucideUser></LucideUser>
         </IconsContainer>
       </InnerContainer>
     </NavContainer>
@@ -47,7 +50,7 @@ export default async function DaliceNavbar() {
 }
 
 // Styles
-const NavContainer = styled.div`
+const NavContainer = styled.header`
   --content-color: var(--white);
   position: relative;
   background-color: var(--accent-primary);
@@ -57,13 +60,14 @@ const NavContainer = styled.div`
   align-items: center;
   z-index: 100;
 
-  :has(#shop:hover) #hover-menu,
+  #shop-dropdown:hover #hover-menu,
+  #shop-dropdown:focus-within #hover-menu,
   #hover-menu:hover {
     display: flex;
   }
 `;
 
-const InnerContainer = styled.div`
+const InnerContainer = styled.nav`
   position: relative;
   width: 100%;
   display: flex;
@@ -78,7 +82,6 @@ const LogoContainer = styled.div``;
 const Menu = styled.div`
   --text-size: 0.9rem;
   position: absolute;
-  left: 0;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -100,8 +103,14 @@ const Logo = css`
 `;
 
 // Shop Hover Menu
+const ShopDropdown = styled.div`
+  border: 1px solid red;
+`;
 
 const HoverMenu = styled.div`
+  margin: auto;
+  left: 0;
+  right: 0;
   text-transform: none;
   display: none;
   position: absolute;
@@ -110,9 +119,7 @@ const HoverMenu = styled.div`
   width: 80%;
   height: 20rem;
   border-radius: 1rem;
-  padding-inline: 1.5rem;
-  padding-block: 2rem;
-  z-index: 99;
+  z-index: 98;
   gap: 1rem;
   overflow: hidden;
   cursor: pointer;
@@ -122,6 +129,8 @@ const HoverMenuAlbumsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding-inline: 1.5rem;
+  padding-block: 2rem;
 `;
 
 const AlbumsTitleContainer = styled.div`
@@ -135,4 +144,12 @@ const AlbumsContainer = styled.div`
   gap: 0.5rem;
   display: flex;
   flex-direction: column;
+`;
+
+const HoverMenuProductsContainer = styled.div`
+  background-color: var(--accent-secondary);
+  width: 100%;
+  height: 100%;
+  padding-inline: 1.5rem;
+  padding-block: 2rem;
 `;

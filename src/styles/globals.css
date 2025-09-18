@@ -10,6 +10,7 @@
 
   /* Accent */
   --dalice-blue: rgb(21, 49, 96);
+  --dalice-blue-light: rgb(21, 61, 128);
 
   /* Surface */
   --surface-primary: var(--white);
@@ -19,6 +20,7 @@
 
   /* Accent */
   --accent-primary: var(--dalice-blue);
+  --accent-secondary: var(--dalice-blue-light);
   /* Typography */
 }
 
