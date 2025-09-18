@@ -5,9 +5,11 @@ import Link from "next/link";
 import DaliceLogo from "../icons/DaliceLogo";
 import { LucideCircleUser } from "lucide-react";
 
-import AlbumsDisplay from "@/components/product/FetchAlbums";
+import fetchAlbums from "@/data/FetchAlbums";
 
-export default function DaliceNavbar() {
+export default async function DaliceNavbar() {
+  const albums = await fetchAlbums();
+  console.log(albums);
   return (
     <NavContainer>
       <InnerContainer>
@@ -26,7 +28,13 @@ export default function DaliceNavbar() {
               <AlbumsTitleContainer>
                 <h6>Albums</h6>
               </AlbumsTitleContainer>
-              <AlbumsDisplay className={AlbumsContainer}></AlbumsDisplay>
+              <AlbumsContainer>
+                {albums.map((value, index) => (
+                  <Link key={index} href="">
+                    {value}
+                  </Link>
+                ))}
+              </AlbumsContainer>
             </HoverMenuAlbumsContainer>
           </HoverMenu>
         </Menu>
@@ -50,7 +58,6 @@ const NavContainer = styled.div`
   z-index: 100;
 
   :has(#shop:hover) #hover-menu,
-  :has(#hover-menu-container:hover) #hover-menu,
   #hover-menu:hover {
     display: flex;
   }
@@ -101,9 +108,9 @@ const HoverMenu = styled.div`
   top: 100%;
   background-color: var(--accent-primary);
   width: 80%;
-  height: 16rem;
+  height: 20rem;
   border-radius: 1rem;
-  padding-inline: 1.25rem;
+  padding-inline: 1.5rem;
   padding-block: 2rem;
   z-index: 99;
   gap: 1rem;
@@ -122,9 +129,10 @@ const AlbumsTitleContainer = styled.div`
   font-size: 0.8rem;
 `;
 
-const AlbumsContainer = css`
+const AlbumsContainer = styled.div`
   height: 100%;
   font-size: 1rem;
+  gap: 0.5rem;
   display: flex;
   flex-direction: column;
 `;
