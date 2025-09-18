@@ -47,9 +47,11 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 101;
+  z-index: 100;
 
-  :has(#shop:hover) #hover-menu {
+  :has(#shop:hover) #hover-menu,
+  :has(#hover-menu-container:hover) #hover-menu,
+  #hover-menu:hover {
     display: flex;
   }
 `;
@@ -60,16 +62,14 @@ const InnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
+  padding-block: 0.25rem;
+  padding-inline: 2rem;
 `;
 
-const LogoContainer = styled.div`
-  height: 5rem;
-`;
+const LogoContainer = styled.div``;
 
 const Menu = styled.div`
-  --text-size: 1rem;
+  --text-size: 0.9rem;
   position: absolute;
   left: 0;
   display: flex;
@@ -78,8 +78,8 @@ const Menu = styled.div`
   gap: 1.8rem;
   font-size: var(--text-size);
   text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
 `;
 
 const IconsContainer = styled.div`
@@ -89,7 +89,7 @@ const IconsContainer = styled.div`
 const Logo = css`
   fill: var(--content-color);
   width: 100%;
-  height: 100%;
+  height: 4.5rem;
 `;
 
 // Shop Hover Menu
@@ -98,7 +98,7 @@ const HoverMenu = styled.div`
   text-transform: none;
   display: none;
   position: absolute;
-  top: 40px;
+  top: 100%;
   background-color: var(--accent-primary);
   width: 80%;
   height: 16rem;
@@ -108,6 +108,7 @@ const HoverMenu = styled.div`
   z-index: 99;
   gap: 1rem;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const HoverMenuAlbumsContainer = styled.div`
