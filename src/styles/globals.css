@@ -6,9 +6,11 @@
   --gray-900: rgb(228, 235, 246);
   --gray-200: rgb(44, 44, 44);
   --black: rgb(16 16 16);
+  --black-rgb: 16 16 16;
 
   /* Accent */
   --dalice-blue: rgb(21, 49, 96);
+  --dalice-blue-light: rgb(21, 61, 128);
 
   /* Surface */
   --surface-primary: var(--white);
@@ -18,6 +20,7 @@
 
   /* Accent */
   --accent-primary: var(--dalice-blue);
+  --accent-secondary: var(--dalice-blue-light);
   /* Typography */
 }
 
@@ -32,16 +35,6 @@
 }
 
 @layer utilities {
-  .container {
-    width: 100%;
-    margin-inline: auto;
-    @media (min-width: 100rem) {
-      max-width: 90%;
-    }
-    @media (max-width: 80rem) {
-      max-width: 85%;
-    }
-  }
   .contour {
     border: 0.15rem solid var(--color-accent-secondary);
   }
@@ -71,7 +64,7 @@ h3 {
 }
 
 p {
-  font-size: clamp(0.6rem, 2vw + 0.8em, 1.1rem);
+  font-size: clamp(0.6rem, 1.1rem);
   font-weight: 400;
 }
 
