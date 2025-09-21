@@ -30,7 +30,7 @@
     --surface-primary: rgb(var(--black));
     --surface-secondary: rgb(var(--gray-200));
     --background: var(--surface-primary);
-    --foreground: var(--white);
+    --foreground: var(--gray-200);
   }
 }
 

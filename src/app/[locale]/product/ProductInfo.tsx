@@ -1,13 +1,13 @@
 import { Product } from "@/data/Product";
+import { formattedDimensions } from "@/data/FormatDimensions";
 export default function ProductInfo({
   product,
+  locale,
 }: {
   product: Product;
+  locale: string;
 }) {
-  const size =
-    product.dimensions?.width != null
-      ? `${product.dimensions.width} ${product.dimensions.unit ?? ''}`
-      : 'N/A';
+  const size = formattedDimensions(product.dimensions, locale);
 
   return (
     <div className="p-8 gap-4 flex flex-col items-center md:w-[50%]">
@@ -21,7 +21,7 @@ export default function ProductInfo({
       </div>
 
       <div className="w-full">{product.description}</div>
-      <div className="w-full">Size: {size}</div>
+      <div className="w-full">Dimensions: {size}</div>
       <div className="w-full">Material: {product.material}</div>
     </div>
   );
