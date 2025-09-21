@@ -1,15 +1,7 @@
 import Supabase from "./lib/supabase"
 
-interface Product {
-  id: string
-  name: string
-  price: string
-  description: string
-  image_url?: string
-  material: string
-  dimensions: string
-  album: string
-}
+import { Product } from "./Product"
+
 export default async function fetchProducts (locale: string): Promise <Product[]> {
   // Fetch products from Supabase
   const { data: products, error } = await Supabase.from("products")

@@ -22,6 +22,7 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
             product.description = translations[0].description || product.description; 
             product.material = translations[0].material || product.material;
             product.album = translations[0].album || product.album;
+product.dimensions = translations[0].dimensions || product.dimensions;
         }
 }
 
