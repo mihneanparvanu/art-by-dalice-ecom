@@ -3,7 +3,7 @@
     "hero": {
       "heading": "Trăiește",
       "heading-span": "frumos",
-      "subheading" : "Bun venit la Dalice. Cred cu tărie în arta de a trăi frumos. Fiecare piesă este creată cu grijă—de la picturile mele originale care dau viață unei încăperi, la bijuteriile mele fine care spun o poveste personală, și la corpurile de iluminat sculpturale și arta de masă care transformă o casă într-un cămin. Creațiile mele nu sunt făcute doar pentru a fi admirate, ci pentru a deveni o parte intimă din viața ta, aducând o notă de frumusețe atent curată în fiecare zi.",
+      "subheading": "Bun venit la Dalice. Cred cu tărie în arta de a trăi frumos. Fiecare piesă este creată cu grijă—de la picturile mele originale care dau viață unei încăperi, la bijuteriile mele fine care spun o poveste personală, și la corpurile de iluminat sculpturale și arta de masă care transformă o casă într-un cămin. Creațiile mele nu sunt făcute doar pentru a fi admirate, ci pentru a deveni o parte intimă din viața ta, aducând o notă de frumusețe atent curată în fiecare zi.",
       "button": "Descoperă tablourile"
     },
     "paintingsSection": {
@@ -11,5 +11,11 @@
       "button": "Explorează toate tablourile"
     },
     "quote": "Tablourile sunt creații originale inspirate de frumusețea naturii și de poezia Monicăi și a lui Ion Pillat."
+  },
+  "ProductInfo": {
+    "details": "Detalii: ",
+    "dimensions": "Dimensiuni: ",
+    "material": "Material: ",
+    "price": "Preț: "
   }
 }

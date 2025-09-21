@@ -17,8 +17,8 @@ export default async function ProductDetails(props: {
   const id = searchParams.id;
   const product: Product = await fetchSingleProduct(id, locale);
   return (
-    <main className="flex flex-col md:flex-row">
-      <ProductDisplay img_URL={product.image_url} />
+    <main className="flex flex-col gap-1.5 md:flex-row">
+      <ProductDisplay imgURL={product.image_url} />
       <ProductInfo
         locale={locale}
         product={{

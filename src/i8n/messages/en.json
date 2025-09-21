@@ -11,5 +11,11 @@
       "button": "Shop all paintings"
     },
     "quote": "The paintings are original creations inspired by the beauty of nature and the poetry of Monica and Ion Pillat."
+  },
+  "ProductInfo": {
+    "details": "Details: ",
+    "dimensions": "Dimensions: ",
+    "material": "Material: ",
+    "price": "Price: "
   }
 }

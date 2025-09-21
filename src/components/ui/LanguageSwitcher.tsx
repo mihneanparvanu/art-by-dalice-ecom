@@ -1,34 +1,44 @@
 "use client";
-import "./language-switcher.css";
 
 // Correct imports for App Router with next-intl
 import { useRouter, usePathname } from "../../i8n/navigation";
 import { useLocale } from "next-intl";
+import { styled } from "@linaria/react";
 
 export default function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const currentLocale = useLocale();
 
-  const changeLanguage = (newLocale: string) => {
-    router.push(pathname, { locale: newLocale });
-  };
+  function switchTo(locale: string) {
+    if (typeof window === "undefined") return;
+
+    const url = new URL(window.location.href);
+
+    const newPath = `${locale}${pathname}${url.search}`;
+    router.replace(newPath);
+  }
 
   const otherLocale = currentLocale === "en" ? "ro" : "en";
-
-  const mainButtonText = currentLocale === "en" ? "English" : "Romanian";
   const dropdownOption = otherLocale === "en" ? "English" : "Romanian";
 
+  // Styles
+
+  const Container = styled.div`
+    position: fixed;
+    bottom: 20px;
+    right: 32px;
+    display: flex;
+  `;
+
   return (
-    <div className="languageDropdown z-50">
-      <button popoverTarget="langPopover" className="currentLang languageSwitcherButton">{mainButtonText}</button>
-      <div popover="manual" id = "langPopover" className="languagesWrapper">
-        <button
-          onClick={() => changeLanguage(otherLocale)}
-          className="languageButton languageSwitcherButton"> 
-          {dropdownOption}
-        </button>
-      </div>
-    </div>
+    <Container>
+      <button
+        onClick={() => switchTo(otherLocale)}
+        className="languageButton languageSwitcherButton"
+      >
+        {dropdownOption}
+      </button>
+    </Container>
   );
 }

@@ -1,13 +1,24 @@
-export default function ProductDisplay({img_URL}: {img_URL?: string}) {
+import { styled } from "@linaria/react";
+
+import Image from "next/image";
+
+export default function ProductDisplay({ imgURL }: { imgURL?: string }) {
+  if (imgURL == null) return null;
+
+  const Container = styled.div`
+    background-color: var(--surface-primary);
+    width: 65%;
+  `;
+
   return (
-    <div className="bg-surface-primary md:w-[50%] md:h-[100vh] p-10">
-      <img
-        src={img_URL}
+    <Container>
+      <Image
+        src={imgURL}
         alt=""
         width={500}
         height={500}
         className="object-contain h-full w-full"
       />
-    </div>
+    </Container>
   );
 }

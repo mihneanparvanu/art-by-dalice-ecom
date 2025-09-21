@@ -8,7 +8,7 @@ import { Cormorant_Garamond } from "next/font/google";
 //Components
 import Navbar from "../../components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import FloatingMenu from "../../components/ui/FloatingMenu";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -42,7 +42,7 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider>
           <Navbar />
-          <FloatingMenu />
+          <LanguageSwitcher />
           {children}
           <Footer />
         </NextIntlClientProvider>

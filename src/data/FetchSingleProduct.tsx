@@ -17,13 +17,13 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
       .select(`product_id, name, description, material, album`)
       .eq("product_id", id);
 
-        if (translations) {
-            product.name = translations[0].name || product.name;
-            product.description = translations[0].description || product.description; 
-            product.material = translations[0].material || product.material;
-            product.album = translations[0].album || product.album;
-        }
-}
+    if (translations) {
+      product.name = translations[0].name || product.name;
+      product.description = translations[0].description || product.description;
+      product.materials = translations[0].material || product.materials;
+      product.album = translations[0].album || product.album;
+    }
+  }
 
   if (!product) {
     return null;
