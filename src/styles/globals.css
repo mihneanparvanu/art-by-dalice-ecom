@@ -1,52 +1,50 @@
 @import "tailwindcss";
 
 :root {
-    /* Colors */
-  
+  /* Colors */
+
   /* Base */
-  
+
   --white: rgb(249, 249, 249);
   --gray-900: rgb(240, 240, 240);
---gray-600: rgb(169, 169, 169);
+  --gray-600: rgb(169, 169, 169);
   --gray-500: rgb(130, 130, 130);
   --gray-300: rgb(80, 80, 80);
   --gray-200: rgb(40, 40, 40);
   --gray-100: rgb(16 16 16);
-  --black: rgb(8,8,8);
+  --black: rgb(8, 8, 8);
 
---cool-gray-900: rgb(228, 235, 246);
---cool-gray-700: rgb(187, 196, 213);
---cool-gray-500: rgb(76, 82, 94);
---cool-gray-250: rgb(47, 50, 56);
---cool-black: rgb(14, 15, 17);
+  --cool-gray-900: rgb(228, 235, 246);
+  --cool-gray-700: rgb(187, 196, 213);
+  --cool-gray-500: rgb(76, 82, 94);
+  --cool-gray-250: rgb(47, 50, 56);
+  --cool-black: rgb(14, 15, 17);
 
---warm-gray-800: rgb(231, 232, 228);
+  --warm-gray-800: rgb(231, 232, 228);
 
   /* Accent */
-  
+
   --dalice-blue: rgb(21, 49, 96);
   --dalice-blue-light: rgb(21, 61, 128);
 
   /* Surface */
-  
+
   --surface-primary: var(--white);
   --surface-secondary: var(--cool-gray-900);
   --surface-tertiary: var(--cool-gray-700);
-  
+
   /* Content */
-  
+
   --content-primary: var(--gray-900);
   --content-secondary: var(--warm-gray-800);
   --content-tertiary: var(--gray-600);
-  
 
   /* Accent */
-  
+
   --accent-primary: var(--dalice-blue);
   --accent-secondary: var(--dalice-blue-light);
-  
+
   /* Typography */
-  
 }
 
 @media (prefers-color-scheme: dark) {
