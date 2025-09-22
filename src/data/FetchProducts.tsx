@@ -1,18 +1,23 @@
 import Supabase from "./lib/supabase";
 
 interface Product {
-  id: string
-  name: string
-  price: string
-  description: string
-  image_url?: string
-  material: string
-  dimensions: string
-  album: string
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+  image_url?: string;
+  material: string;
+  dimensions: string;
+  album: string;
 }
-export default async function fetchProducts (locale: string): Promise <Product[]> {
+export default async function fetchProducts(
+  locale: string,
+  album: string
+): Promise<Product[]> {
   // Fetch products from Supabase
-  const { data: products, error } = await Supabase.from("products").select();
+  const { data: products, error } = await Supabase.from("products")
+    .select()
+    .eq("album", album);
 
   if (error) {
     console.error("Supabase fetch error", error);

@@ -14,7 +14,9 @@ export default async function DaliceNavbar() {
     <NavContainer>
       <InnerContainer role="nav">
         <LogoContainer>
-          <DaliceLogo className={Logo}></DaliceLogo>
+          <Link href="/">
+            <DaliceLogo className={Logo}></DaliceLogo>
+          </Link>
         </LogoContainer>
         <Menu>
           <ShopDropdown id="shop-dropdown">
@@ -28,7 +30,13 @@ export default async function DaliceNavbar() {
                 </AlbumsTitleContainer>
                 <AlbumsContainer>
                   {albums.map((value, index) => (
-                    <Link key={index} href="">
+                    <Link
+                      key={index}
+                      href={{
+                        pathname: "/products",
+                        query: { album: value },
+                      }}
+                    >
                       {value}
                     </Link>
                   ))}
@@ -80,14 +88,18 @@ const InnerContainer = styled.nav`
   padding-inline: 2rem;
 `;
 
-const LogoContainer = styled.div``;
+const LogoContainer = styled.div`
+  z-index: 10;
+`;
 
 const Menu = styled.div`
   --text-size: 0.9rem;
+  left: 0;
+  right: 0;
+  margin: auto;
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 100%;
   gap: 1.8rem;
   font-size: var(--text-size);
   text-transform: uppercase;

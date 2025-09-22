@@ -87,7 +87,7 @@ export default async function Home(props: HomeParams) {
   const params = await props.params;
   const locale = params.locale || "en";
   const t = await getTranslations("Home");
-  const paintings = await fetchProducts(locale);
+  const paintings = await fetchProducts(locale, "Paintings");
   return (
     <>
       <HeroSection>

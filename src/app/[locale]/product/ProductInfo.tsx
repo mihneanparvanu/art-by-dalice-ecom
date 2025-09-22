@@ -15,7 +15,7 @@ export default async function ProductInfo({
 }) {
   const size = formattedDimensions(product.dimensions, locale);
   const t = await getTranslations("ProductInfo");
-
+  const shouldDisplayExhibition = product.exhibition != null;
   // Styles
   const Container = styled.div`
     font-size: 1.25rem;
@@ -66,10 +66,12 @@ export default async function ProductInfo({
         </div>
         <DescriptionContainer>{product.description}</DescriptionContainer>
       </TitleDescriptionContainer>
-      <ExhibitionContainer>
-        {t("exhibition")}
-        {product.exhibition || ""}
-      </ExhibitionContainer>
+      {shouldDisplayExhibition && (
+        <ExhibitionContainer>
+          {t("exhibition")}
+          {product.exhibition || ""}
+        </ExhibitionContainer>
+      )}
       <DetailsContainer>
         <div className="w-full">
           {t("price")}

@@ -1,11 +1,23 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i8n/routing";
+import { NextRequest } from "next/server";
 
-export default createMiddleware(routing);
+type Locale = "en" | "ro";
+
+export default function middleware(request: NextRequest) {
+  const cookieValue = request.cookies.get("LANG")?.value?.toLowerCase();
+  const accept = request.headers.get("accept-language") ?? "";
+
+  const headerLocale: Locale = accept.startsWith("ro") ? "ro" : "en";
+
+  const locale: Locale =
+    cookieValue === "ro" || cookieValue === "en"
+      ? (cookieValue as Locale)
+      : headerLocale;
+
+  return createMiddleware({ ...routing, defaultLocale: locale })(request);
+}
 
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
   matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
 };
