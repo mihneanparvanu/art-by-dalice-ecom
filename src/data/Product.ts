@@ -1,16 +1,21 @@
 export interface Product {
-  id: string
-  name: string
-  price: number
-  description: string
-  image_url?: string
-  material: string
-  dimensions: Dimensions
-  album: string
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image_url?: string;
+  materials: Materials;
+  dimensions: Dimensions;
+  album: string;
+  exhibition?: string;
 }
 
-export interface Dimensions {
+export type Materials = {
+  material: [string];
+};
+
+export type Dimensions = {
   unit: string;
   width: number;
   height: number;
-}
+};

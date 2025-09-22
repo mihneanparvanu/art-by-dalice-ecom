@@ -14,14 +14,16 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
 
   if (locale == "ro") {
     const { data: translations } = await Supabase.from("products_translation")
-      .select(`product_id, name, description, material, album`)
+      .select(`product_id, name, description, material, album, exhibition`)
       .eq("product_id", id);
 
     if (translations) {
       product.name = translations[0].name || product.name;
       product.description = translations[0].description || product.description;
-      product.materials = translations[0].material || product.materials;
+      product.materials.material =
+        translations[0].material || product.materials.material;
       product.album = translations[0].album || product.album;
+      product.exhibition = translations[0].exhibition || product.exhibition;
     }
   }
 

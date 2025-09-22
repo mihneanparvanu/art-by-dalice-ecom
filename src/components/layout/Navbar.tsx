@@ -42,7 +42,10 @@ export default async function DaliceNavbar() {
           <Link href="">Contact</Link>
         </Menu>
         <IconsContainer>
-          <LucideUser></LucideUser>
+          <AccountContainer>
+            <LucideUser></LucideUser>
+            Account
+          </AccountContainer>
         </IconsContainer>
       </InnerContainer>
     </NavContainer>
@@ -96,6 +99,13 @@ const IconsContainer = styled.div`
   display: flex;
 `;
 
+const AccountContainer = styled.div`
+  font-size: 0.8rem;
+  align-items: center;
+  display: flex;
+  gap: 0.125rem;
+`;
+
 const Logo = css`
   fill: var(--content-color);
   width: 100%;
@@ -103,9 +113,7 @@ const Logo = css`
 `;
 
 // Shop Hover Menu
-const ShopDropdown = styled.div`
-  border: 1px solid red;
-`;
+const ShopDropdown = styled.div``;
 
 const HoverMenu = styled.div`
   margin: auto;

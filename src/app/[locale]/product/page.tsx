@@ -1,5 +1,6 @@
 //Utilities
 import { fetchSingleProduct } from "../../../data/FetchSingleProduct";
+import { css } from "@linaria/core";
 
 //Components
 import ProductDisplay from "./ProductDisplay";
@@ -17,20 +18,26 @@ export default async function ProductDetails(props: {
   const id = searchParams.id;
   const product: Product = await fetchSingleProduct(id, locale);
   return (
-    <main className="flex flex-col gap-1.5 md:flex-row">
-      <ProductDisplay imgURL={product.image_url} />
+    <main className="flex w-full flex-col md:flex-row h-[90svh]">
+      <ProductDisplay className={sideBySide} imgURL={product.image_url} />
       <ProductInfo
+        className={sideBySide}
         locale={locale}
         product={{
           id: product.id,
           name: product.name,
           description: product.description,
           price: product.price,
-          material: product.material,
+          materials: product.materials,
           dimensions: product.dimensions,
           album: product.album,
+          exhibition: product.exhibition,
         }}
       />
     </main>
   );
 }
+
+const sideBySide = css`
+  width: 50%;
+`;
