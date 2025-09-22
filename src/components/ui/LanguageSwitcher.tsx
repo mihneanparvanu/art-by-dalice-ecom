@@ -1,6 +1,6 @@
+// src/components/LanguageSwitcher.tsx
 "use client";
 
-// Correct imports for App Router with next-intl
 import { useRouter, usePathname } from "../../i8n/navigation";
 import { useLocale } from "next-intl";
 import { styled } from "@linaria/react";
@@ -11,11 +11,8 @@ export default function LanguageSwitcher() {
   const currentLocale = useLocale();
 
   function switchTo(locale: string) {
-    if (typeof window === "undefined") return;
+const newPath = locale == "en" ? pathname : 
 
-    const url = new URL(window.location.href);
-
-    const newPath = `${locale}${pathname}${url.search}`;
     router.replace(newPath);
   }
 
@@ -23,7 +20,6 @@ export default function LanguageSwitcher() {
   const dropdownOption = otherLocale === "en" ? "English" : "Romanian";
 
   // Styles
-
   const Container = styled.div`
     position: fixed;
     bottom: 20px;
@@ -31,14 +27,29 @@ export default function LanguageSwitcher() {
     display: flex;
   `;
 
+  const Button = styled.button`
+    background: var(--accent-primary, #000);
+    color: var(--white, #fff);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    &:hover {
+      background: var(--accent-secondary, #333);
+    }
+  `;
+
   return (
     <Container>
-      <button
+      <Button
         onClick={() => switchTo(otherLocale)}
         className="languageButton languageSwitcherButton"
       >
         {dropdownOption}
-      </button>
+      </Button>
     </Container>
   );
 }
