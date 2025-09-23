@@ -11,6 +11,30 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import fetchProducts from "../../data/FetchProducts";
 
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const title =
+    locale == "en"
+      ? "Dalice (Daniela Davidescu Brown)"
+      : "Dalice (Daniela Davidescu Brown)";
+
+  return {
+    title: title,
+    alternates: {
+      languages: {
+        en: "/shop",
+        ro: "/shop",
+      },
+    },
+  };
+}
+
 type HomeParams = {
   params: Promise<{
     locale: string;
@@ -32,18 +56,18 @@ const HeroSection = styled.section`
 `;
 
 const ImageContainer = styled.div`
-height: 100%;
+  height: 100%;
 `;
 
 const HeroImage = css`
-height: 100%;
-object-fit: cover;
+  height: 100%;
+  object-fit: cover;
   width: 100%;
 `;
 
 const HeroTextButtonContainer = styled.div`
- padding-block-end: 2rem;
- padding-inline: 1rem;
+  padding-block-end: 2rem;
+  padding-inline: 1rem;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -57,7 +81,7 @@ const HeroTextButtonContainer = styled.div`
 `;
 
 const HeroTextContainer = styled.div`
-color: var(--accent-primary);
+  color: var(--accent-primary);
   width: 65ch;
   display: flex;
   flex-direction: column;
@@ -93,6 +117,7 @@ export default async function Home(props: HomeParams) {
       <HeroSection>
         <ImageContainer>
           <Image
+            priority={true}
             className={HeroImage}
             src="/hero/hero.jpg"
             alt="hero image"

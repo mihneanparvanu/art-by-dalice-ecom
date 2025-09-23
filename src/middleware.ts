@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 type Locale = "en" | "ro";
 
 export default function middleware(request: NextRequest) {
-  const cookieValue = request.cookies.get("LANG")?.value?.toLowerCase();
+  const cookieValue = request.cookies.get("NEXT_LOCALE")?.value?.toLowerCase();
   const accept = request.headers.get("accept-language") ?? "";
 
   const headerLocale: Locale = accept.startsWith("ro") ? "ro" : "en";

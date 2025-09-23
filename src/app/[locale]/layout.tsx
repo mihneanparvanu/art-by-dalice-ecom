@@ -1,11 +1,12 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { routing } from "../../i8n/routing";
 import "../../styles/globals.css";
 import { Manrope } from "next/font/google";
 import { Cormorant_Garamond } from "next/font/google";
 
-//Components
+// Components
 import Navbar from "../../components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
@@ -21,6 +22,27 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
   variable: "--font-cormorant-garamond",
 });
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const title =
+    locale == "en"
+      ? "Dalice (Daniela Davidescu Brown)"
+      : "Dalice (Daniela Davidescu Brown)";
+  return {
+    title: title,
+    alternates: {
+      languages: {
+        en: "/",
+        ro: "/",
+      },
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

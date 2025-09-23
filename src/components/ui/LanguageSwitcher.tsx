@@ -11,7 +11,7 @@ export default function LanguageSwitcher() {
   const currentLocale = useLocale();
 
   function switchTo(locale: string) {
-    document.cookie = `LANG=${locale}; path=/; max-age=31536000`;
+    document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000`;
     router.replace(pathname + (window.location.search || ""), { locale });
   }
 
