@@ -6,7 +6,7 @@ import { useLocale } from "next-intl";
 
 import { styled } from "@linaria/react";
 
-import RoFlag from "../icons/RoFlag";
+import "./../../../node_modules/flag-icons/css/flag-icons.min.css";
 
 export default function LanguageSwitcher() {
   const router = useRouter();
@@ -20,8 +20,12 @@ export default function LanguageSwitcher() {
 
   const otherLocale = currentLocale === "en" ? "ro" : "en";
 
-  const dropdownOption = otherLocale === "en" ? "English" : "Romanian";
-  const dropdownFlag = otherLocale === "en" ? <EnFlag /> : <RoFlag />;
+  const dropdownFlag =
+    otherLocale === "en" ? (
+      <span className="fi fi-gb "> </span>
+    ) : (
+      <span className="fi fi-ro"></span>
+    );
 
   // Styles
   const Container = styled.div`
@@ -32,33 +36,32 @@ export default function LanguageSwitcher() {
   `;
 
   const Button = styled.button`
-    background: var(--accent-primary);
-    color: var(--white, #fff);
-    border-radius: calc(infinity * 1px);
-    padding: 0.5rem 1rem;
+    background: var(--surface-secondary);
     cursor: pointer;
     font-size: 1rem;
-    text-transform: uppercase;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.4rem;
+    border-radius: calc(infinity * 1px);
+    color: var(--content-primary);
 
     &:hover {
-      background: var(--accent-secondary);
+      transition: all 0.2s;
+      background: var(--cool-gray-900);
     }
   `;
 
   const FlagContainer = styled.div`
-    width: 4rem;
-    height: 4rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
     border-radius: calc(infinity * 1px);
-    position: relative;
     overflow: hidden;
-
-    #flag {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
+    span {
+      height: 100%;
+      width: 100%;
+      scale: 1.25;
     }
   `;
 
@@ -68,7 +71,7 @@ export default function LanguageSwitcher() {
         onClick={() => switchTo(otherLocale)}
         className="languageButton languageSwitcherButton"
       >
-        <FlagContainer> {dropdownFlag} </FlagContainer>
+        <FlagContainer>{dropdownFlag}</FlagContainer>
       </Button>
     </Container>
   );

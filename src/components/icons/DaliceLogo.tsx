@@ -1,4 +1,4 @@
-import React, { SVGProps } from "react";
+import { SVGProps } from "react";
 import { styled } from "@linaria/react";
 
 interface DaliceLogoProps extends SVGProps<SVGElement> {
