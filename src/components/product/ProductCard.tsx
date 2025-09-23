@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 interface ProductCardProps {
   productTitle: string;
@@ -11,11 +12,10 @@ export default function ProductCard({
   productImageURL,
 }: ProductCardProps) {
   return (
-    <div
-      className="flex flex-col items-baseline">
-      <div className="py-10 px-5 w-full flex justify-center bg-surface-primary">
+    <div className="flex flex-col items-baseline">
+      <div className="py-10 px-5 w-full flex justify-center">
         {productImageURL ? (
-          <img 
+          <Image
             width={500}
             height={1500}
             className="w-[50rem] h-[25rem] object-contain"
@@ -28,7 +28,9 @@ export default function ProductCard({
       </div>
       <div className="flex flex-col gap-0.5 px-2 py-4">
         <p>{productTitle}</p>
-        <p>{productPrice} <span> lei</span></p>
+        <p>
+          {productPrice} <span> lei</span>
+        </p>
       </div>
     </div>
   );

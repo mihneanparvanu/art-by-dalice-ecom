@@ -14,6 +14,7 @@
   --gray-100: rgb(16 16 16);
   --black: rgb(8, 8, 8);
 
+  --cool-gray-950: rgb(241, 244, 248);
   --cool-gray-900: rgb(228, 235, 246);
   --cool-gray-700: rgb(187, 196, 213);
   --cool-gray-500: rgb(76, 82, 94);
@@ -30,7 +31,7 @@
   /* Surface */
 
   --surface-primary: var(--white);
-  --surface-secondary: var(--cool-gray-900);
+  --surface-secondary: var(--cool-gray-950);
   --surface-tertiary: var(--cool-gray-700);
 
   /* Content */
@@ -47,14 +48,6 @@
   /* Typography */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Surface */
-    --surface-primary: rgb(var(--black));
-    --surface-secondary: rgb(var(--gray-200));
-  }
-}
-
 @layer utilities {
   .contour {
     border: 0.15rem solid var(--color-accent-secondary);
@@ -65,6 +58,7 @@ body {
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-cormorant-garamond);
   font-family: var(--font-sans);
+  background-color: var(--surface-primary);
 }
 
 h1 {
