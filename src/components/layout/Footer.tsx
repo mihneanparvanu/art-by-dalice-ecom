@@ -98,9 +98,10 @@ export default function Footer() {
         <MenuContainer>
           <h4>Connect</h4>
           <LinksContainer id="social-links">
-            <Link href="https://www.facebook.com/artbydalice"
-            target="_blank"
-            rel="nofollow"
+            <Link
+              href="https://www.facebook.com/artbydalice"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
             >
               <Facebook />
             </Link>
