@@ -67,7 +67,6 @@ export default function ProductGridItem({
         <ImageContainer>
           <Image
             className="image"
-            objectFit="cover"
             width="500"
             height="850"
             src={imageURL}

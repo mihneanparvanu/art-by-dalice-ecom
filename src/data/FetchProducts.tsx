@@ -21,14 +21,12 @@ export default async function fetchProducts(
 ): Promise<Product[]> {
   // 1. Fetch products from database
   const { data: products, error } = await Supabase.from("products")
-    .select(
-      `*,
-      product_images(
-      url)`,
-    )
+    .select("*, products_images(product_id, url, order)")
     .eq("album", album);
 
   if (error || !products) return [];
+
+  console.log(products[2]);
 
   let translatedProducts = products;
 
@@ -60,7 +58,7 @@ export default async function fetchProducts(
     name: product.name,
     price: product.price,
     description: product.description,
-    images: product.product_images || [],
+    images: product.products_images || [],
     material: product.material,
     dimensions: product.dimensions,
     album: product.album,

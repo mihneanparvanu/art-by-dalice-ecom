@@ -48,7 +48,7 @@ export default async function ProductsPage(props: {
               <ProductGridItem
                 title={product.name}
                 price={product.price}
-                imageURL={product.image_url}
+                imageURL={product.images[0]?.url}
               />
             </Link>
           ))}
