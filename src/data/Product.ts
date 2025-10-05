@@ -3,11 +3,15 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  image_url?: string;
+  images: ProductImage[];
   materials: Materials;
   dimensions: Dimensions;
   album: string;
   exhibition?: string;
+}
+
+export interface ProductImage {
+  url: string;
 }
 
 export type Materials = {

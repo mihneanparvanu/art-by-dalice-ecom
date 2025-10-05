@@ -1,10 +1,6 @@
 import { styled } from "@linaria/react";
 import { css } from "@linaria/core";
 // Components
-import ProductsSection from "../../components/product/ProductsSection";
-import ProductCard from "../../components/product/ProductCard";
-
-import Link from "next/link";
 import Image from "next/image";
 
 // Utilities
@@ -103,15 +99,10 @@ const HeadingSpan = styled.span`
   font-style: italic;
 `;
 
-const PaintingsSection = styled.section`
-  display: flex;
-`;
-
 export default async function Home(props: HomeParams) {
   const params = await props.params;
   const locale = params.locale || "en";
   const t = await getTranslations("Home");
-  const paintings = await fetchProducts(locale, "Paintings");
   return (
     <>
       <HeroSection>
@@ -135,27 +126,6 @@ export default async function Home(props: HomeParams) {
           </HeroTextContainer>
         </HeroTextButtonContainer>
       </HeroSection>
-      <PaintingsSection>
-        {paintings && (
-          <ProductsSection
-            sectionTitle={t("paintingsSection.title")}
-            buttonTitle={t("paintingsSection.button")}
-            products={paintings.slice(0, 4).map((painting) => (
-              <Link
-                href={{ pathname: "/product", query: { id: painting.id } }}
-                key={painting.id}
-              >
-                <ProductCard
-                  key={painting.id}
-                  productTitle={painting.name}
-                  productPrice={painting.price}
-                  productImageURL={painting.image_url}
-                />
-              </Link>
-            ))}
-          />
-        )}
-      </PaintingsSection>
     </>
   );
 }

@@ -1,9 +1,9 @@
 import Supabase from "./lib/supabase";
 
 export const fetchSingleProduct = async (id: string, locale: string) => {
-  // Fetch products from Supabase
+  // Fetch product from Supabase
   const { data: product, error } = await Supabase.from("products")
-    .select()
+    .select("*, images:products_images(product_id, url)")
     .eq("id", id)
     .single();
 
@@ -27,10 +27,9 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
     }
   }
 
-  console.log(product.name);
-
   if (!product) {
     return null;
   }
   return product;
+  console.log(product);
 };

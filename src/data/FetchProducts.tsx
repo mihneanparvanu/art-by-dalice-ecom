@@ -1,19 +1,6 @@
 import Supabase from "./lib/supabase";
 
-interface ProductImage {
-  url: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  price: string;
-  description: string;
-  images: ProductImage[];
-  material: string;
-  dimensions: string;
-  album: string;
-}
+import { Product } from "./Product";
 
 export default async function fetchProducts(
   locale: string,
@@ -60,7 +47,7 @@ export default async function fetchProducts(
     price: product.price,
     description: product.description,
     images: product.products_images || [],
-    material: product.material,
+    materials: product.material,
     dimensions: product.dimensions,
     album: product.album,
   }));
