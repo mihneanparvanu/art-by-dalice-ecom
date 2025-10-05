@@ -33,8 +33,7 @@ const FloatingMenu = () => {
         </div>
       </div>
       <ul className="contentWrapper">
-        <div className="quickSettingsWrapper">
-        </div>
+        <div className="quickSettingsWrapper"></div>
         <li className="optionWrapper">
           <button onClick={showBigMenu} className="optionWrapper quickSettings">
             <span>Language</span>

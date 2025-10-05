@@ -31,7 +31,7 @@ export default function LanguageSwitcher() {
   const Container = styled.div`
     position: fixed;
     bottom: 20px;
-    right: 32px;
+    right: 0px;
     display: flex;
   `;
 

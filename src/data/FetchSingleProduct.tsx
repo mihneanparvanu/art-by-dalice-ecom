@@ -21,7 +21,7 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
       product.name = translations[0].name || product.name;
       product.description = translations[0].description || product.description;
       product.materials.material =
-        translations[0].material || product.materials.material;
+        translations[0].materials.material || product.materials.material;
       product.album = translations[0].album || product.album;
       product.exhibition = translations[0].exhibition || product.exhibition;
     }

@@ -5,6 +5,7 @@ import { routing } from "../../i8n/routing";
 import "../../styles/globals.css";
 import { Manrope } from "next/font/google";
 import { Cormorant_Garamond } from "next/font/google";
+import { css } from "@linaria/core";
 
 // Components
 import Navbar from "../../components/layout/Navbar";
@@ -59,12 +60,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body
-        className={`antialiased relative ${manrope.variable} ${cormorant.variable}`}
-      >
+      <body className={`${manrope.variable} ${cormorant.variable}`}>
         <NextIntlClientProvider>
           <Navbar />
-          <LanguageSwitcher />
           {children}
           <Footer />
         </NextIntlClientProvider>

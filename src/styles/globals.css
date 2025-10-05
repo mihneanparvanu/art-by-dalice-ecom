@@ -48,22 +48,33 @@
   /* Typography */
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@layer utilities {
-  .contour {
-    border: 0.15rem solid var(--color-accent-secondary);
-  }
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings:
+    "liga" on,
+    "kern" on;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-cormorant-garamond);
   font-family: var(--font-sans);
   background-color: var(--surface-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h1 {
@@ -85,30 +96,4 @@ h3 {
 p {
   font-size: clamp(0.6rem, 1.1rem);
   font-weight: 400;
-}
-
-@media screen and (width > 1500px) {
-  .wrapper {
-    inline-size: 1500px;
-    margin-inline: auto;
-  }
-}
-
-@media screen and (width > 1299px) and (width < 1499px) {
-  .wrapper {
-    inline-size: 1200px;
-    margin-inline: auto;
-  }
-}
-
-@media screen and (width > 1024px) and (width < 1299px) {
-  .wrapper {
-    inline-size: 1000px;
-    margin-inline: auto;
-  }
-}
-@media screen and (width < 1024px) {
-  .wrapper {
-    padding-inline: 1rem;
-  }
 }

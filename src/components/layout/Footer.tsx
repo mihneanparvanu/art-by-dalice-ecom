@@ -115,7 +115,7 @@ export default function Footer() {
         </MenuContainer>
       </MenusContainer>
       <CopyrightContainer>
-        `© JIM & DANA BROWN S.R.L. {year}. All rights reserved.`
+        © JIM & DANA BROWN S.R.L. {year}. All rights reserved.
       </CopyrightContainer>
     </FooterContainer>
   );
