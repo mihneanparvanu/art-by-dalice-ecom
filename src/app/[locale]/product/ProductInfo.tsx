@@ -40,6 +40,8 @@ export default async function ProductInfo({
   `;
 
   const DescriptionContainer = styled.div`
+    white-space: pre-wrap;
+    width: 40ch;
     font-size: 0.8em;
     font-weight: 500;
     color: var(--gray-200);

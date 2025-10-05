@@ -26,15 +26,13 @@ export default async function fetchProducts(
 
   if (error || !products) return [];
 
-  console.log(products[2]);
-
   let translatedProducts = products;
 
   if (locale === "ro") {
     // Fetch all translations first
     const { data: translations } = await Supabase.from(
       "products_translation",
-    ).select("product_id, name, description, material, album");
+    ).select("*");
 
     if (translations) {
       const translationMap = new Map(
@@ -53,6 +51,9 @@ export default async function fetchProducts(
       });
     }
   }
+
+  console.log(translatedProducts);
+
   return translatedProducts.map((product) => ({
     id: product.id,
     name: product.name,

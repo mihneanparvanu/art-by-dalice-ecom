@@ -12,9 +12,9 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
     return { data: null, error: error.message };
   }
 
-  if (locale == "ro") {
+  if (locale === "ro") {
     const { data: translations } = await Supabase.from("products_translation")
-      .select(`product_id, name, description, material, album, exhibition`)
+      .select("*")
       .eq("product_id", id);
 
     if (translations) {
@@ -26,6 +26,8 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
       product.exhibition = translations[0].exhibition || product.exhibition;
     }
   }
+
+  console.log(product.name);
 
   if (!product) {
     return null;
