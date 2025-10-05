@@ -63,9 +63,9 @@ export default async function DaliceNavbar() {
 // Styles
 const NavContainer = styled.header`
   --content-color: var(--white);
+  color: var(--content-color);
   position: relative;
   background-color: var(--accent-primary);
-  color: var(--content-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,7 +119,7 @@ const AccountContainer = styled.div`
 `;
 
 const Logo = css`
-  fill: var(--content-color);
+  color: var(--content-color);
   width: 100%;
   height: 4.5rem;
 `;
@@ -128,6 +128,7 @@ const Logo = css`
 const ShopDropdown = styled.div``;
 
 const HoverMenu = styled.div`
+  color: var(--content-color);
   margin: auto;
   left: 0;
   right: 0;

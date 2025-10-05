@@ -48,6 +48,11 @@
   /* Typography */
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @layer utilities {
   .contour {
     border: 0.15rem solid var(--color-accent-secondary);
