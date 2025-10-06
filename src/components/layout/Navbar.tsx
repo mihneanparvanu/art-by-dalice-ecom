@@ -2,6 +2,8 @@ import { css } from "@linaria/core";
 import { styled } from "@linaria/react";
 import Link from "next/link";
 
+import { media } from "@/styles/breakpoints";
+
 import DaliceLogo from "../icons/DaliceLogo";
 import { LucideUser } from "lucide-react";
 import { Menu } from "lucide-react";
@@ -40,7 +42,7 @@ const MobileNav = styled.nav`
   color: white;
   padding-inline: 1rem;
 
-  @media screen and (width < 699px) {
+  ${media.mobile} {
     display: flex;
   }
 `;
@@ -63,7 +65,7 @@ const DesktopNav = styled.nav`
   padding-block: 0.25rem;
   padding-inline: 2rem;
 
-  @media screen and (width < 699px) {
+  ${media.mobile} {
     display: none;
   }
 `;
