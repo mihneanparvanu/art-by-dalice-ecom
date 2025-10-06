@@ -32,6 +32,8 @@ export default async function ProductsPage(props: {
   const products = await fetchProducts(locale, album);
   const hasProducts = Array.isArray(products) && products.length > 0;
 
+  const sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
+
   if (!hasProducts) {
     return <NoProductsDisplay>No products found</NoProductsDisplay>;
   }
@@ -40,7 +42,7 @@ export default async function ProductsPage(props: {
     <main className="flex py-10 justify-center">
       <div className="flex flex-col justify-center w-full">
         <Grid>
-          {products.map((product) => (
+          {sortedProducts.map((product) => (
             <Link
               href={{ pathname: "/product", query: { id: product.id } }}
               key={product.id}
