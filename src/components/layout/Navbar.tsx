@@ -4,63 +4,15 @@ import Link from "next/link";
 
 import DaliceLogo from "../icons/DaliceLogo";
 import { LucideUser } from "lucide-react";
+import { Menu } from "lucide-react";
+import { Search } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
+import { CircleUser } from "lucide-react";
 
 import fetchAlbums from "@/data/FetchAlbums";
 
-export default async function DaliceNavbar() {
-  const albums = await fetchAlbums();
-  console.log(albums);
-  return (
-    <NavContainer>
-      <InnerContainer role="nav">
-        <LogoContainer>
-          <Link href="/">
-            <DaliceLogo className={Logo}></DaliceLogo>
-          </Link>
-        </LogoContainer>
-        <Menu>
-          <ShopDropdown id="shop-dropdown">
-            <Link id="shop" href="">
-              Shop
-            </Link>
-            <HoverMenu role="menu" id="hover-menu">
-              <HoverMenuAlbumsContainer>
-                <AlbumsTitleContainer>
-                  <h6>Albums</h6>
-                </AlbumsTitleContainer>
-                <AlbumsContainer>
-                  {albums.map((value, index) => (
-                    <Link
-                      key={index}
-                      href={{
-                        pathname: "/products",
-                        query: { album: value },
-                      }}
-                    >
-                      {value}
-                    </Link>
-                  ))}
-                </AlbumsContainer>
-              </HoverMenuAlbumsContainer>
-              <HoverMenuProductsContainer></HoverMenuProductsContainer>
-            </HoverMenu>
-          </ShopDropdown>
-          <Link href="">Discover</Link>
-          <Link href="">Galleries</Link>
-          <Link href="">Contact</Link>
-        </Menu>
-        <IconsContainer>
-          <AccountContainer>
-            <LucideUser></LucideUser>
-            Account
-          </AccountContainer>
-        </IconsContainer>
-      </InnerContainer>
-    </NavContainer>
-  );
-}
-
 // Styles
+
 const NavContainer = styled.header`
   --content-color: var(--white);
   color: var(--content-color);
@@ -78,7 +30,31 @@ const NavContainer = styled.header`
   }
 `;
 
-const InnerContainer = styled.nav`
+const MobileNav = styled.nav`
+  width: 100%;
+  display: none;
+  padding-block: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--accent-primary);
+  color: white;
+  padding-inline: 1rem;
+
+  @media screen and (width < 699px) {
+    display: flex;
+  }
+`;
+
+const MobileIconsContainer = styled.div`
+  display: flex;
+  gap: 0.8rem;
+`;
+
+const MobileLogoContainer = styled.div`
+  width: 5rem;
+`;
+
+const DesktopNav = styled.nav`
   position: relative;
   width: 100%;
   display: flex;
@@ -86,13 +62,17 @@ const InnerContainer = styled.nav`
   justify-content: space-between;
   padding-block: 0.25rem;
   padding-inline: 2rem;
+
+  @media screen and (width < 699px) {
+    display: none;
+  }
 `;
 
 const LogoContainer = styled.div`
   z-index: 10;
 `;
 
-const Menu = styled.div`
+const DesktopMenu = styled.div`
   --text-size: 0.9rem;
   left: 0;
   right: 0;
@@ -174,3 +154,69 @@ const HoverMenuProductsContainer = styled.div`
   padding-inline: 1.5rem;
   padding-block: 2rem;
 `;
+
+export default async function DaliceNavbar() {
+  const albums = await fetchAlbums();
+  console.log(albums);
+  return (
+    <NavContainer>
+      <MobileNav>
+        <MobileIconsContainer>
+          <Menu />
+          <Search />
+        </MobileIconsContainer>
+        <MobileLogoContainer>
+          <DaliceLogo></DaliceLogo>
+        </MobileLogoContainer>
+        <IconsContainer>
+          <ShoppingBag />
+          <CircleUser />
+        </IconsContainer>
+      </MobileNav>
+      <DesktopNav role="nav">
+        <LogoContainer>
+          <Link href="/">
+            <DaliceLogo className={Logo}></DaliceLogo>
+          </Link>
+        </LogoContainer>
+        <DesktopMenu>
+          <ShopDropdown id="shop-dropdown">
+            <Link id="shop" href="">
+              Shop
+            </Link>
+            <HoverMenu role="menu" id="hover-menu">
+              <HoverMenuAlbumsContainer>
+                <AlbumsTitleContainer>
+                  <h6>Albums</h6>
+                </AlbumsTitleContainer>
+                <AlbumsContainer>
+                  {albums.map((value, index) => (
+                    <Link
+                      key={index}
+                      href={{
+                        pathname: "/products",
+                        query: { album: value },
+                      }}
+                    >
+                      {value}
+                    </Link>
+                  ))}
+                </AlbumsContainer>
+              </HoverMenuAlbumsContainer>
+              <HoverMenuProductsContainer></HoverMenuProductsContainer>
+            </HoverMenu>
+          </ShopDropdown>
+          <Link href="">Discover</Link>
+          <Link href="">Galleries</Link>
+          <Link href="">Contact</Link>
+        </DesktopMenu>
+        <IconsContainer>
+          <AccountContainer>
+            <LucideUser></LucideUser>
+            Account
+          </AccountContainer>
+        </IconsContainer>
+      </DesktopNav>
+    </NavContainer>
+  );
+}

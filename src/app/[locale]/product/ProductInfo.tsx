@@ -89,7 +89,7 @@ export default async function ProductInfo({
           {t("exhibition")}
           {product.exhibition || ""}
         </ExhibitionContainer>
-      )}
+      )}i
     </Container>
   );
 }
