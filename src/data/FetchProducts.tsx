@@ -2,13 +2,16 @@ import Supabase from "./lib/supabase";
 
 import { Product } from "./Product";
 
+
 export default async function fetchProducts(
   locale: string,
   album: string,
 ): Promise<Product[]> {
   // 1. Fetch products from database
   const { data: products, error } = await Supabase.from("products")
-    .select("*, products_images(product_id, url, order)")
+    .select(
+      "*, products_images(product_id, url, order), exhibitions:exhibitions!inner(id, name, name_ro)",
+    )
     .eq("album", album);
 
   if (error || !products) return [];
@@ -50,5 +53,6 @@ export default async function fetchProducts(
     materials: product.material,
     dimensions: product.dimensions,
     album: product.album,
+    exhibitions: product.exhibitions,
   }));
 }

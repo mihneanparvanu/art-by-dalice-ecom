@@ -7,7 +7,14 @@ export interface Product {
   materials: Materials;
   dimensions: Dimensions;
   album: string;
-  exhibition?: string;
+  exhibitions: Exhibition;
+  exhibitionName?: string;
+}
+
+export interface Exhibition {
+  id: number;
+  name: string;
+  name_ro: string;
 }
 
 export interface ProductImage {

@@ -1,16 +1,24 @@
 import Supabase from "./lib/supabase";
 
-export const fetchSingleProduct = async (id: string, locale: string) => {
+import { Product } from "./Product";
+
+export const fetchSingleProduct = async (
+  id: string,
+  locale: string,
+): Promise<Product> => {
   // Fetch product from Supabase
   const { data: product, error } = await Supabase.from("products")
-    .select("*, images:products_images(product_id, url)")
+    .select(
+      "*, images:products_images(product_id, url), exhibitions:exhibitions!inner(name, name_ro)",
+    )
     .eq("id", id)
     .single();
 
   if (error) {
     console.error("Supabase fetch error", error);
-    return { data: null, error: error.message };
   }
+
+  product.exhibitionName = product.exhibitions.name;
 
   if (locale === "ro") {
     const { data: translations } = await Supabase.from("products_translation")
@@ -23,13 +31,9 @@ export const fetchSingleProduct = async (id: string, locale: string) => {
       product.materials.material =
         translations[0].materials.material || product.materials.material;
       product.album = translations[0].album || product.album;
-      product.exhibition = translations[0].exhibition || product.exhibition;
+      product.exhibitionName = product.exhibitions.name_ro;
     }
   }
 
-  if (!product) {
-    return null;
-  }
   return product;
-  console.log(product);
 };

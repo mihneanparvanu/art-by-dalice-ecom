@@ -60,7 +60,7 @@ export default async function ProductInfo({
   const size = formattedDimensions(product.dimensions, locale);
   const t = await getTranslations("ProductInfo");
   const shouldDisplayDescriptiton = locale == "ro";
-  const shouldDisplayExhibition = product.exhibition != null;
+  const shouldDisplayExhibition = product.exhibitions != null;
   return (
     <Container className={`${className}`}>
       <TitleDescriptionContainer>
@@ -87,9 +87,9 @@ export default async function ProductInfo({
       {shouldDisplayExhibition && (
         <ExhibitionContainer>
           {t("exhibition")}
-          {product.exhibition || ""}
+          {product.exhibitionName || ""}
         </ExhibitionContainer>
-      )}i
+      )}
     </Container>
   );
 }
