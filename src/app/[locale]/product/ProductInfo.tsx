@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { Product } from "@/data/Product";
+import { Product } from "@/data/DisplayProduct";
 import { formattedDimensions } from "@/data/FormatDimensions";
 
 import { getTranslations } from "next-intl/server";

@@ -5,8 +5,7 @@ import Image from "next/image";
 
 // Utilities
 import { getTranslations } from "next-intl/server";
-import fetchProducts from "../../data/FetchProducts";
-
+import fetchProducts from "@/data/FetchProducts";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -102,6 +101,7 @@ const HeadingSpan = styled.span`
 export default async function Home(props: HomeParams) {
   const params = await props.params;
   const locale = params.locale || "en";
+  fetchProducts(locale);
   const t = await getTranslations("Home");
   return (
     <>

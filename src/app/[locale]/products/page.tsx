@@ -1,6 +1,7 @@
-import fetchProducts from "../../../data/FetchProducts";
 import ProductGridItem from "@/components/product/ProductGridItem";
 import Link from "next/link";
+
+import fetchProducts from "@/data/FetchProducts";
 
 import { styled } from "@linaria/react";
 
@@ -25,18 +26,19 @@ export default async function ProductsPage(props: {
   searchParams: Promise<{ album: string }>;
   params: Promise<{ locale: string }>;
 }) {
-  const album = (await props.searchParams).album;
   const params = await props.params;
   const locale = params.locale || "en";
 
-  const products = await fetchProducts(locale, album);
+  const products = await fetchProducts(locale);
   const hasProducts = Array.isArray(products) && products.length > 0;
-
-  const sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
 
   if (!hasProducts) {
     return <NoProductsDisplay>No products found</NoProductsDisplay>;
   }
+
+  const sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name));
+
+  console.log(sortedProducts);
 
   return (
     <main className="flex py-10 justify-center">

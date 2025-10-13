@@ -1,4 +1,4 @@
-import { Dimensions } from "./Product";
+import { Dimensions } from "./DisplayProduct";
 
 export function getDimensionLabels(locale: string) {
   const widthText = locale == "en" ? "width" : "lățime";

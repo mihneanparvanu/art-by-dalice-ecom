@@ -1,4 +1,4 @@
-export interface Product {
+export interface DisplayProduct {
   id: string;
   name: string;
   price: number;
@@ -7,14 +7,7 @@ export interface Product {
   materials: Materials;
   dimensions: Dimensions;
   album: string;
-  exhibitions: Exhibition;
-  exhibitionName?: string;
-}
-
-export interface Exhibition {
-  id: number;
-  name: string;
-  name_ro: string;
+  exhibition: string;
 }
 
 export interface ProductImage {

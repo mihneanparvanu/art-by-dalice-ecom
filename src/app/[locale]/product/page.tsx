@@ -2,13 +2,12 @@ import { styled } from "@linaria/react";
 import { css } from "@linaria/core";
 
 // Utilities
-import { fetchSingleProduct } from "../../../data/FetchSingleProduct";
 
 // Components
 import ProductDisplay from "./ProductDisplay";
 import ProductInfo from "./ProductInfo";
 
-import { Product } from "@/data/Product";
+import { DisplayProduct } from "@/data/DisplayProduct";
 
 const Container = styled.main`
   display: flex;
@@ -30,7 +29,7 @@ export default async function ProductDetails(props: {
   const searchParams = await props.searchParams;
   const locale = params.locale || "en";
   const id = searchParams.id;
-  const product: Product = await fetchSingleProduct(id, locale);
+  const product: DisplayProduct = await fetchSingleProduct(id, locale);
   return (
     <Container>
       <ProductDisplay
