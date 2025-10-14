@@ -71,7 +71,7 @@ export default function Footer() {
         <MenuContainer>
           <h4>Shop</h4>
           <LinksContainer>
-            <Link href="">Paintings</Link>
+            <Link href="http://dev2.artbydalice.com/products">Paintings</Link>
             <Link href="">Jewelry</Link>
             <Link href="">Lamps</Link>
             <Link href="">Tabletop Art</Link>

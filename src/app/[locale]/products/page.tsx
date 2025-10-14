@@ -1,9 +1,12 @@
 import ProductGridItem from "@/components/product/ProductGridItem";
 import Link from "next/link";
 
-import fetchProducts from "@/data/FetchProducts";
-
+// Styles
 import { styled } from "@linaria/react";
+import { media } from "@/styles/breakpoints";
+
+// Product fetching
+import fetchProducts from "@/data/FetchProducts";
 
 const NoProductsDisplay = styled.div`
   height: 80dvh;
@@ -20,6 +23,15 @@ const Grid = styled.div`
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2rem;
   row-gap: 2.5rem;
+  padding-inline: 2rem;
+
+  ${media.tablet} {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  ${media.mobile} {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 `;
 
 export default async function ProductsPage(props: {
