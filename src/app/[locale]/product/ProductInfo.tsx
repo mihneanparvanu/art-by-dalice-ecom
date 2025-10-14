@@ -1,5 +1,5 @@
 import { styled } from "@linaria/react";
-import { Product } from "@/data/DisplayProduct";
+import { DisplayProduct } from "@/data/DisplayProduct";
 import { formattedDimensions } from "@/data/FormatDimensions";
 
 import { getTranslations } from "next-intl/server";
@@ -53,14 +53,14 @@ export default async function ProductInfo({
   locale,
   className,
 }: {
-  product: Product;
+  product: DisplayProduct;
   locale: string;
   className?: string;
 }) {
   const size = formattedDimensions(product.dimensions, locale);
   const t = await getTranslations("ProductInfo");
-  const shouldDisplayDescriptiton = locale == "ro";
-  const shouldDisplayExhibition = product.exhibitions != null;
+  const shouldDisplayDescriptiton = true;
+  const shouldDisplayExhibition = product.exhibition != null;
   return (
     <Container className={`${className}`}>
       <TitleDescriptionContainer>
@@ -87,7 +87,7 @@ export default async function ProductInfo({
       {shouldDisplayExhibition && (
         <ExhibitionContainer>
           {t("exhibition")}
-          {product.exhibitionName || ""}
+          {product.exhibition || ""}
         </ExhibitionContainer>
       )}
     </Container>

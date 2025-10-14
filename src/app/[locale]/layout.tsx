@@ -60,8 +60,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={`${manrope.variable} ${cormorant.variable}`}>
+        <Navbar locale={locale} />
         <NextIntlClientProvider>
-          <Navbar />
           {children}
           <LanguageSwitcher />
           <Footer />

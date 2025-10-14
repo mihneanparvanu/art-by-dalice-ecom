@@ -157,8 +157,8 @@ const HoverMenuProductsContainer = styled.div`
   padding-block: 2rem;
 `;
 
-export default async function DaliceNavbar() {
-  const albums = await fetchAlbums();
+export default async function DaliceNavbar({ locale }: { locale: string }) {
+  const albums = await fetchAlbums(locale);
   console.log(albums);
   return (
     <NavContainer>

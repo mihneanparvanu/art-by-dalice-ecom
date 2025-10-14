@@ -15,7 +15,7 @@ export interface ProductImage {
 }
 
 export type Materials = {
-  material: [string];
+  material: [string] | undefined;
 };
 
 export type Dimensions = {

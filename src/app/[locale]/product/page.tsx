@@ -8,6 +8,7 @@ import ProductDisplay from "./ProductDisplay";
 import ProductInfo from "./ProductInfo";
 
 import { DisplayProduct } from "@/data/DisplayProduct";
+import fetchProduct from "@/data/FetchProduct";
 
 const Container = styled.main`
   display: flex;
@@ -29,18 +30,19 @@ export default async function ProductDetails(props: {
   const searchParams = await props.searchParams;
   const locale = params.locale || "en";
   const id = searchParams.id;
-  const product: DisplayProduct = await fetchSingleProduct(id, locale);
-  return (
-    <Container>
-      <ProductDisplay
-        className={flexChild}
-        imgURL={product.images[0].url}
-      ></ProductDisplay>
-      <ProductInfo
-        className={flexChild}
-        product={product}
-        locale={locale}
-      ></ProductInfo>
-    </Container>
-  );
+  const product: DisplayProduct | undefined = await fetchProduct(id, locale);
+  if (product)
+    return (
+      <Container>
+        <ProductDisplay
+          className={flexChild}
+          imgURL={product.images[0].url}
+        ></ProductDisplay>
+        <ProductInfo
+          className={flexChild}
+          product={product}
+          locale={locale}
+        ></ProductInfo>
+      </Container>
+    );
 }
