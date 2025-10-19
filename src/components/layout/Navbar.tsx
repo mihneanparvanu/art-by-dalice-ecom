@@ -131,19 +131,19 @@ const HoverMenu = styled.div`
 const HoverMenuAlbumsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   padding-inline: 1.5rem;
-  padding-block: 2rem;
+  padding-block: 0.2rem;
 `;
 
 const AlbumsTitleContainer = styled.div`
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  line-height: 100%;
 `;
 
 const AlbumsContainer = styled.div`
-  height: 100%;
-  font-size: 1rem;
+  font-size: 1.1rem;
   gap: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@ const HoverMenuProductsContainer = styled.div`
   width: 100%;
   height: 100%;
   padding-inline: 1.5rem;
-  padding-block: 2rem;
+  padding-block: 1rem;
 `;
 
 export default async function DaliceNavbar({ locale }: { locale: string }) {
